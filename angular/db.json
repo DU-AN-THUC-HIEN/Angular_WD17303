@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "minh",
+      "price": 200,
+      "image": "anh"
+    },
+    {
+      "id": 2,
+      "name": "duy",
+      "price": 300,
+      "image": "anh"
+    },
+    {
+      "name": "Sản phẩm 1",
+      "price": 110,
+      "image": "https://picsum.photos/150/150 ",
+      "id": 3
+    }
+  ]
+}
