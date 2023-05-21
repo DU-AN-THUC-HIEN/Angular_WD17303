@@ -8,6 +8,11 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 
 @NgModule({
@@ -16,6 +21,11 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
     HomePageComponent,
     BaseLayoutComponent,
     PageNotFoundComponent,
+    BannerComponent,
+    CategoriesComponent,
+    ProductListComponent,
+    BlogPageComponent,
+    ContactPageComponent,
 
   ],
   imports: [
