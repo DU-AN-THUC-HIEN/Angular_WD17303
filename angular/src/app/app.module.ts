@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    BaseLayoutComponent,
     PageNotFoundComponent,
 
   ],
