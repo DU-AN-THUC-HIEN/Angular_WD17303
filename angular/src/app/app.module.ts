@@ -14,6 +14,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
     BlogPageComponent,
     ContactPageComponent,
     ProductDetailPageComponent,
+    SignInComponent,
+    SignUpComponent,
 
   ],
   imports: [
