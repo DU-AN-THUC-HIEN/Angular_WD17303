@@ -18,6 +18,9 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
+import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
+import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     ProductDetailPageComponent,
     SignInComponent,
     SignUpComponent,
+    CategoryListComponent,
+    ProductAddComponent,
+    ProductUpdateComponent,
 
   ],
   imports: [
