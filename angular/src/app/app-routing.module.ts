@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 
 const routes: Routes = [
   {
     path: "", component: BaseLayoutComponent, children: [
       { path: "", component: HomePageComponent },
+      { path: "product/:id", component: ProductDetailPageComponent }
 
     ]
   },
