@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -7,4 +8,3 @@ import { Component } from '@angular/core';
 export class BannerComponent {
 
 }
-
