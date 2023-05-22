@@ -17,6 +17,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     AppComponent,
     HomePageComponent,
     BaseLayoutComponent,
+    AdminLayoutComponent,
     PageNotFoundComponent,
     BannerComponent,
     CategoriesComponent,
