@@ -13,6 +13,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
     ProductListComponent,
     BlogPageComponent,
     ContactPageComponent,
+    DashboardComponent,
 
   ],
   imports: [
