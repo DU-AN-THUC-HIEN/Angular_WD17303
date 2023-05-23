@@ -25,6 +25,8 @@ const routes: Routes = [
   },
   {
     path: "admin", component: AdminLayoutComponent, children: [
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "dashboard", component: DashboardComponent },
       { path: "products", component: ProductListComponent },
       { path: "products/add", component: ProductAddComponent },
       { path: "products/:id/update", component: ProductUpdateComponent },
