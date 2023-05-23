@@ -89,6 +89,8 @@ export const update = async (req, res) => {
     try {
         const id = req.params.id;
         const body = req.body;
+        const { categoryId } = req.body;
+        const product = await Product.findById(id);
         const { error } = ProductSchema.validate(body, { abortEarly: false });
         if (error) {
             const errors = error.details.map((err) => err.message);
@@ -96,6 +98,18 @@ export const update = async (req, res) => {
                 message: errors
             })
         }
+        await Category.findByIdAndUpdate(product.categoryId, {
+            $pull: {
+                products: product._id,
+            },
+        });
+        await Category.findByIdAndUpdate(categoryId, {
+
+            $addToSet: {
+                products: product._id,
+            },
+        });
+
         const data = await Product.findByIdAndUpdate({ _id: id }, body, {
             new: true,
         });
