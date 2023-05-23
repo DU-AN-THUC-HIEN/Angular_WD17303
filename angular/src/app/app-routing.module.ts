@@ -9,11 +9,21 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ProductListComponent } from './pages/admin/product-list/product-list.component';
+import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
+import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
+import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
+import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 
 const routes: Routes = [
   {
     path: "", component: BaseLayoutComponent, children: [
       { path: "", component: HomePageComponent },
+      { path: "about", component: AboutPageComponent },
+      { path: "contact", component: ContactUsPageComponent },
+      { path: "blog", component: BlogViewPageComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
       {path:"cart",component:CartComponent},
       { path: "signin", component: SignInComponent },
@@ -22,9 +32,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: "admin",component: AdminLayoutComponent,
-  
-    
+    path: "admin", component: AdminLayoutComponent, children: [
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "products", component: ProductListComponent },
+      { path: "products/add", component: ProductAddComponent },
+      { path: "products/:id/update", component: ProductUpdateComponent },
+      { path: "categories", component: CategoryListComponent },
+
+    ]
+
   },
   {
     path: "**", component: PageNotFoundComponent
