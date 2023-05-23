@@ -21,6 +21,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
 import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
 import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
+import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { ProductUpdateComponent } from './pages/admin/product-update/product-upd
     CategoryListComponent,
     ProductAddComponent,
     ProductUpdateComponent,
+    AboutPageComponent,
+    ContactUsPageComponent,
+    BlogViewPageComponent,
 
   ],
   imports: [
