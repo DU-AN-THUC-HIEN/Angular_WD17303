@@ -24,13 +24,14 @@ const routes: Routes = [
     ]
   },
   {
-    path: "admin",component: AdminLayoutComponent, children:[
-      {path: "product", component: ProductListComponent},
-      {path: "category", component: CategoryListComponent},
-      {path: "add", component: ProductAddComponent},
-      {path: "update", component: ProductUpdateComponent}
+    path: "admin", component: AdminLayoutComponent, children: [
+      { path: "products", component: ProductListComponent },
+      { path: "products/add", component: ProductAddComponent },
+      { path: "products/:id/update", component: ProductUpdateComponent },
+      { path: "categories", component: CategoryListComponent },
+
     ]
-    
+
   },
   {
     path: "**", component: PageNotFoundComponent
