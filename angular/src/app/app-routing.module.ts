@@ -12,11 +12,17 @@ import { ProductListComponent } from './pages/admin/product-list/product-list.co
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
 import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
 import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
+import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 
 const routes: Routes = [
   {
     path: "", component: BaseLayoutComponent, children: [
       { path: "", component: HomePageComponent },
+      { path: "about", component: AboutPageComponent },
+      { path: "contact", component: ContactUsPageComponent },
+      { path: "blog", component: BlogViewPageComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
       { path: "signin", component: SignInComponent },
       { path: "signup", component: SignUpComponent }
