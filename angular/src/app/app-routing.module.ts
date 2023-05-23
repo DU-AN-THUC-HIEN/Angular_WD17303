@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { ProductListComponent } from './pages/admin/product-list/product-list.component';
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
 import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: "contact", component: ContactUsPageComponent },
       { path: "blog", component: BlogViewPageComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
+      {path:"cart",component:CartComponent},
       { path: "signin", component: SignInComponent },
       { path: "signup", component: SignUpComponent }
 
