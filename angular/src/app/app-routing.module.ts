@@ -8,6 +8,10 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { ProductListComponent } from './pages/admin/product-list/product-list.component';
+import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
+import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
+import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
 
 const routes: Routes = [
   {
@@ -20,8 +24,12 @@ const routes: Routes = [
     ]
   },
   {
-    path: "admin",component: AdminLayoutComponent,
-  
+    path: "admin",component: AdminLayoutComponent, children:[
+      {path: "product", component: ProductListComponent},
+      {path: "category", component: CategoryListComponent},
+      {path: "add", component: ProductAddComponent},
+      {path: "update", component: ProductUpdateComponent}
+    ]
     
   },
   {
