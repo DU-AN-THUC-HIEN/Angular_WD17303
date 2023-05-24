@@ -5,6 +5,10 @@ export const ProductSchema = Joi.object({
         "string.empty": "Tên bắt buộc nhập",
         "any.required": "Trường tên bắt buộc nhập"
     }),
+    author: Joi.string().required().messages({
+        "string.empty": "Tên tác giả bắt buộc nhập",
+        "any.required": "Trường tên tác giả bắt buộc nhập"
+    }),
     price: Joi.number().required().messages({
         "string.empty": "Giá bắt buộc nhập",
         "any.required": "Trường giá bắt buộc nhập",
