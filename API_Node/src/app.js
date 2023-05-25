@@ -10,6 +10,6 @@ app.use(cors());
 app.use("/api", router);
 app.use("/api", routerUser);
 app.use("/api", routerCategory);
-mongoose.connect("mongodb://127.0.0.1:27017/test");
+mongoose.connect("mongodb://127.0.0.1:27017/Angular_WD17303");
 
 export const viteNodeApp = app;

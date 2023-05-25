@@ -6,8 +6,8 @@ const routerCategory = express.Router();
 
 routerCategory.get("/categories", getAll);
 routerCategory.get("/categories/:id", get);
-routerCategory.post("/categories", checkPermission, create);
-routerCategory.delete("/categories/:id", checkPermission, remove);
-routerCategory.patch("/categories/:id", checkPermission, update);
+routerCategory.post("/categories", create);
+routerCategory.delete("/categories/:id", remove);
+routerCategory.patch("/categories/:id", update);
 
 export default routerCategory;
