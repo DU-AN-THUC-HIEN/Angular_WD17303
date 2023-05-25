@@ -4,29 +4,13 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Category Name</th>
-      <th scope="col"></th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>
-        <button class="btn btn-danger  ">Xóa</button>
-        <button class="btn btn-primary m-2 ">Sửa</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>
-        <button class="btn btn-danger  ">Xóa</button>
-        <button class="btn btn-primary m-2 ">Sửa</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
+    <tr *ngFor="let category of categories; index as i">
+      <td scope="row">{{i+1}}</td>
+      <td>{{category.name}}</td>
       <td>
         <button class="btn btn-danger  ">Xóa</button>
         <button class="btn btn-primary m-2 ">Sửa</button>
