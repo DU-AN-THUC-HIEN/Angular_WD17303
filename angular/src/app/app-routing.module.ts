@@ -16,6 +16,7 @@ import { ProductUpdateComponent } from './pages/admin/adminProduct/product-updat
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
+import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: "products/add", component: ProductAddComponent },
       { path: "products/:id/update", component: ProductUpdateComponent },
       { path: "categories", component: CategoryListComponent },
+      {path: "categories/add", component: CategoryAddComponent}
 
     ]
 

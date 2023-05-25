@@ -1,1 +1,13 @@
-<p>category-add works!</p>
+<form (ngSubmit)="onHandleAdd()" [formGroup]="categoryForm">
+    <!-- Name book input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form4Example1">Tên sách</label>
+      <input type="text" formControlName="name" class="form-control" placeholder="Book title"/>
+    </div>
+  
+  
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Thêm Mới</button>
+  </form>
+
