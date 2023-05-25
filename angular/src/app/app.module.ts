@@ -10,7 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductViewComponent } from './components/product-list/product-list.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -20,11 +20,13 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
-import { ProductAddComponent } from './pages/admin/product-add/product-add.component';
-import { ProductUpdateComponent } from './pages/admin/product-update/product-update.component';
+import { ProductAddComponent } from './pages/admin/adminProduct/product-add/product-add.component';
+import { ProductUpdateComponent } from './pages/admin/adminProduct/product-update/product-update.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
+import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
+import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.com
     PageNotFoundComponent,
     BannerComponent,
     CategoriesComponent,
-    ProductListComponent,
+    ProductViewComponent,
     BlogPageComponent,
     ContactPageComponent,
     DashboardComponent,
@@ -44,11 +46,13 @@ import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.com
     SignUpComponent,
     CartComponent,
     CategoryListComponent,
+    ProductListComponent,
     ProductAddComponent,
     ProductUpdateComponent,
     AboutPageComponent,
     ContactUsPageComponent,
     BlogViewPageComponent,
+    CategoryAddComponent,
 
   ],
   imports: [
