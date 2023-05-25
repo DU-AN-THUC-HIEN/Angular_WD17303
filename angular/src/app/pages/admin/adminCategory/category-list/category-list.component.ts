@@ -19,4 +19,13 @@ export class CategoryListComponent {
 
     })
   }
+  removeItem(id: any){
+    this.CategoryService.removeCategory(id).subscribe(category =>{
+      const newCategory = this.categories.filter((category) =>category._id !=id);
+      this.categories = newCategory
+      console.log('Xóa thành công', category);
+      
+      
+    })
+  }
 }
