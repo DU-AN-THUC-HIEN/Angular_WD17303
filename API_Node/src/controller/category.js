@@ -31,6 +31,23 @@ export const get = async (req, res) => {
     }
 };
 
+export const getById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Category.findById(id);
+        if (data === 0) {
+            return res.status(400).json({
+                message: "Hiện sản phẩm thất bại",
+            })
+        }
+        return res.status(200).json(data)
+    } catch (error) {
+        return res.status(400).json({
+            message: error,
+        })
+    }
+};
+
 export const create = async (req, res) => {
     try {
         const body = req.body;

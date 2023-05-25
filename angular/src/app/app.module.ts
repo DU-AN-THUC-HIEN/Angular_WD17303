@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -27,6 +28,7 @@ import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
     ContactUsPageComponent,
     BlogViewPageComponent,
     CategoryAddComponent,
+    CategoryEditComponent,
 
   ],
   imports: [
@@ -60,7 +63,8 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
