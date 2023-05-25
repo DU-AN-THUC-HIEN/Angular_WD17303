@@ -28,6 +28,7 @@ import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
     ContactUsPageComponent,
     BlogViewPageComponent,
     CategoryAddComponent,
+    CategoryEditComponent,
 
   ],
   imports: [
