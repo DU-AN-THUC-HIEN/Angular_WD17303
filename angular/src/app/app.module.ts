@@ -11,7 +11,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { ProductViewComponent } from './components/product-list/product-list.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -29,6 +28,7 @@ import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.com
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
