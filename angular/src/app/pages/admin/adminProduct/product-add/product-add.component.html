@@ -1,36 +1,46 @@
-<form>
+<form (ngSubmit)="onHandleAdd()" [formGroup]="productForm">
     <!-- Name book input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="form4Example1">Tên sách</label>
-      <input type="text" id="form4Example1" class="form-control" placeholder="Book title"/>
+      <input type="text" id="form4Example1" class="form-control" placeholder="Book title" formControlName="name"/>
     </div>
   
     <!-- Name User input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="form4Example2">User Name</label>
-      <input type="email" id="form4Example2" class="form-control" placeholder="username"/>
+      <input type="email" id="form4Example2" class="form-control" placeholder="username" formControlName="author"/>
       
     </div>
 
     <!-- Price input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="form4Example2">Giá</label>
-      <input type="email" id="form4Example2" class="form-control" placeholder="price"/>
+      <input type="email" id="form4Example2" class="form-control" placeholder="price" formControlName="price"/>
     </div>
 
     <!-- Image input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="form4Example2">Ảnh</label>
-      <input type="file" id="form4Example2" class="form-control" placeholder="price"/>
+      <input type="file" id="form4Example2" class="form-control" placeholder="image" formControlName="image"/>
     </div>
      <!-- Message input -->
      <div class="form-outline mb-4">
         <label class="form-label" for="form4Example3">Mô tả</label>
-      <textarea class="form-control" id="form4Example3" rows="4" placeholder="message"></textarea>
+      <textarea class="form-control" id="form4Example3" rows="4" placeholder="message" form="description"></textarea>
      
     </div>
+    <div >
+      <label for="">Danh Mục</label>
+      <select class="form-select" aria-label="Default select example" style="margin-bottom: 20px;" >
+        <option selected>Chọn Danh Mục</option>
+        <option value="" *ngFor="let category of categories">{{category.name}}</option>  
+      </select>
+
+    </div>
+
+    
   
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Thêm Mới</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4"  >Thêm Mới</button>
   </form>
