@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 export const signUp = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, address } = req.body;
         const body = req.body;
         const { error } = userSchema.validate(body, { abortEarly: false });
         if (error) {
@@ -24,6 +24,7 @@ export const signUp = async (req, res) => {
             name,
             email,
             password: hashedPassword,
+            address,
         });
         data.password = undefined;
 

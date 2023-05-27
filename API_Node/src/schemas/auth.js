@@ -19,7 +19,8 @@ export const userSchema = Joi.object({
         "any.only": "Mật khẩu không khớp",
         "string.empty": "Confirm không được để trống",
         "any.required": "Trường confirm là bắt buộc",
-    })
+    }),
+    address: Joi.string(),
 });
 
 export const signInSchema = Joi.object({
