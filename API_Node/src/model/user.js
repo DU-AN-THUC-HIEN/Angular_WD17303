@@ -14,6 +14,9 @@ const userSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    address: {
+        type: String,
+    },
     role: {
         type: String,
         default: "member"

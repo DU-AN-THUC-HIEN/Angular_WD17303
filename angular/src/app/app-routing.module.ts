@@ -6,8 +6,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignInComponent } from './pages/sign/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/sign/sign-up/sign-up.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
 import { CategoryListComponent } from './pages/admin/adminCategory/category-list/category-list.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: "contact", component: ContactUsPageComponent },
       { path: "blog", component: BlogViewPageComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
-      {path:"cart",component:CartComponent},
+      { path: "cart", component: CartComponent },
       { path: "signin", component: SignInComponent },
       { path: "signup", component: SignUpComponent }
 
@@ -41,8 +41,8 @@ const routes: Routes = [
       { path: "products/add", component: ProductAddComponent },
       { path: "products/:id/update", component: ProductUpdateComponent },
       { path: "categories", component: CategoryListComponent },
-      {path: "categories/add", component: CategoryAddComponent},
-      {path: "categories/:id/update", component: CategoryEditComponent}
+      { path: "categories/add", component: CategoryAddComponent },
+      { path: "categories/:id/update", component: CategoryEditComponent }
 
     ]
 

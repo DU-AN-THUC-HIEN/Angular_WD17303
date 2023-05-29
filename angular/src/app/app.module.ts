@@ -11,13 +11,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { ProductViewComponent } from './components/product-list/product-list.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignInComponent } from './pages/sign/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/sign/sign-up/sign-up.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CategoryListComponent } from './pages/admin/adminCategory/category-list/category-list.component';
@@ -29,6 +28,7 @@ import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.com
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
