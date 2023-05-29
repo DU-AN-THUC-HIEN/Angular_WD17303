@@ -15,9 +15,10 @@ export class ProductAddComponent {
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     author: ['', [Validators.required, Validators.minLength(4)]],
-    image: "",
-    price: 0,
-    description: "",
+    image: [''],
+    price: [0],
+    description: [''],
+    categoryId: ['']
   })
   constructor(private CategoryService: CategoryService,
     private productService: ProductService,
@@ -25,7 +26,6 @@ export class ProductAddComponent {
     private router: Router) {
     this.CategoryService.getCategories().subscribe((data) => {
       this.categories = data
-
     }, error => {
       console.log(error.message);
 
@@ -39,6 +39,7 @@ export class ProductAddComponent {
         image: this.productForm.value.image || "",
         price: this.productForm.value.price || 0,
         description: this.productForm.value.description || "",
+        categoryId: this.productForm.value.categoryId || "",
       }
       this.productService.addProduct(product).subscribe(product => {
         console.log('Thêm sản phẩm thành công', product);
