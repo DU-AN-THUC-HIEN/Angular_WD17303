@@ -1,6 +1,7 @@
 import Joi from "joi";
 
 export const userSchema = Joi.object({
+    _id: Joi.string(),
     name: Joi.string().required().messages({
         "string.empty": "Tên không được để trống",
         "any.required": "Trường tên là bắt buộc",
@@ -15,12 +16,13 @@ export const userSchema = Joi.object({
         "any.required": "Trường password là bắt buộc",
         "string.min": "Ít phất phải 6 kí tự",
     }),
-    confirmpassword: Joi.string().valid(Joi.ref("password")).required().messages({
+    confirmpassword: Joi.string().valid(Joi.ref("password")).messages({
         "any.only": "Mật khẩu không khớp",
         "string.empty": "Confirm không được để trống",
         "any.required": "Trường confirm là bắt buộc",
     }),
     address: Joi.string(),
+    role: Joi.string(),
 });
 
 export const signInSchema = Joi.object({

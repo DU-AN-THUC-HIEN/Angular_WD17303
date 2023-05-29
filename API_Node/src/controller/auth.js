@@ -2,6 +2,7 @@ import User from "../model/user";
 import { userSchema, signInSchema } from "../schemas/auth";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import user from "../model/user";
 export const signUp = async (req, res) => {
     try {
         const { name, email, password, address } = req.body;
@@ -70,3 +71,80 @@ export const signIn = async (req, res) => {
     } catch (error) {
     }
 };
+export const getAll = async (req, res) => {
+    try {
+        const data = await user.find();
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(400).json({
+            message: error,
+        })
+    }
+};
+export const get = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await user.findById(id);
+        if (data === 0) {
+            return res.status(400).json({
+                message: "Hiện tt người dùng thất bại",
+            })
+        }
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(400).json({
+            message: error,
+        })
+    }
+};
+export const remove = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await user.findByIdAndDelete(id);
+        return res.status(200).json({
+            message: "Xoá sản phẩm thành công",
+        })
+    } catch (error) {
+        return res.status(400).json({
+            message: error,
+        })
+    }
+};
+export const update = async (req, res) => {
+    
+    try {
+        const { name, email, password, address, role } = req.body;
+        const id = req.params.id;
+        const body = req.body;
+        const { error } = userSchema.validate(body, { abortEarly: false });
+        if (error) {
+            const errors = error.details.map((err) => err.message);
+            return res.status(400).json({
+                message: errors
+            })
+        }
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const data = await user.findByIdAndUpdate({ _id: id },{
+            name,
+            email,
+            password: hashedPassword,
+            address,
+            role,
+        }, {
+            new: true,
+        });
+        if (data.length === 0) {
+            return res.status(400).json({
+                message: "Cập nhật danh mục thất bại",
+            })
+        }
+        return res.status(200).json({
+            message: "Cập nhật danh mục thành công",
+            data,
+        })
+    } catch (error) {
+        return res.status(400).json({
+            message: error,
+        })
+    }
+}
