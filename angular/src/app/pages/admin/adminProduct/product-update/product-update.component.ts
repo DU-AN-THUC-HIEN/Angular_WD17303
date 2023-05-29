@@ -50,7 +50,7 @@ export class ProductUpdateComponent {
       }, error => console.log(error.message)
       )
     }),
-      this.CategoryService.getCategories().subscribe((data) => {
+      this.categoryService.getCategories().subscribe((data) => {
         this.categories = data
       }, error => {
         console.log(error.message);
