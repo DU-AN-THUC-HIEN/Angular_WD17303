@@ -39,7 +39,7 @@ export class ProductUpdateComponent {
         })
       }, error => console.log(error.message)
       )
-    })
+    }),
     this.route.paramMap.subscribe(params => {
       const id = String(params.get('id'));
       this.productService.getProductById(id).subscribe(product => {
@@ -52,8 +52,13 @@ export class ProductUpdateComponent {
         })
       }, error => console.log(error.message)
       )
+    }),
+    this.CategoryService.getCategories().subscribe((data) => {
+      this.categories = data
+    }, error => {
+      console.log(error.message);
+
     })
-   
   
   }
   onHandleUpdate() {
