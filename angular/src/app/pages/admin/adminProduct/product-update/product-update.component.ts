@@ -12,54 +12,47 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class ProductUpdateComponent {
   categories: ICategory[] = [];
-  category!: ICategory;
   product!: IProduct;
-  categoryForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
-  })
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     author: ['', [Validators.required, Validators.minLength(4)]],
     price: [0],
-    image: ['', [Validators.required, Validators.minLength(4)]],
-    description: ['', [Validators.required, Validators.minLength(4)]]
+    image: [''],
+    description: [''],
+    categoryId: ['']
+
   })
-  
+
   constructor(private categoryService: CategoryService,
     private productService: ProductService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router) {
     this.route.paramMap.subscribe(params => {
-      const id = String(params.get('id'));
-      this.categoryService.getCategoryById(id).subscribe(category => {
-        this.category = category;        
-        this.categoryForm.patchValue({
-          name: this.category.name,
-        })
-      }, error => console.log(error.message)
-      )
-    }),
-    this.route.paramMap.subscribe(params => {
+      this.categoryService.getCategories().subscribe((data) => {
+        this.categories = data
+      }, error => {
+        console.log(error.message);
+
+      })
+
       const id = String(params.get('id'));
       this.productService.getProductById(id).subscribe(product => {
-        this.product = product;        
+        this.product = product;
         this.productForm.patchValue({
           name: this.product.name,
           author: this.product.author,
           price: this.product.price,
           image: this.product.image,
+          description: this.product.description,
+          categoryId: this.product.categoryId
         })
       }, error => console.log(error.message)
       )
-    }),
-    this.CategoryService.getCategories().subscribe((data) => {
-      this.categories = data
-    }, error => {
-      console.log(error.message);
+      console.log(this.productForm);
 
     })
-  
+
   }
   onHandleUpdate() {
     if (this.productForm.valid) {
@@ -70,10 +63,11 @@ export class ProductUpdateComponent {
         price: this.productForm.value.price || 0,
         image: this.productForm.value.image || "",
         description: this.productForm.value.description || "",
-      }      
+        categoryId: this.productForm.value.categoryId || "",
+      }
       console.log(newProduct);
-      
-      this.productService.updateProduct(newProduct).subscribe(product=>{
+
+      this.productService.updateProduct(newProduct).subscribe(product => {
         this.router.navigate(['/admin/products'])
       })
     }

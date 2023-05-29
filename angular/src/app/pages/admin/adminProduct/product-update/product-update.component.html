@@ -25,7 +25,7 @@
     <textarea class="form-control" rows="4" formControlName="description"></textarea>
   </div>
   <select class="form-select" style="margin-bottom: 20px;" formControlName="categoryId">
-    <option selected disabled>Chọn danh mục</option>
+    <option disabled>Chọn danh mục</option>
     <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
   </select>
   <!-- Submit button -->
