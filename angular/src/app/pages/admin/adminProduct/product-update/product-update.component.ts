@@ -49,9 +49,13 @@ export class ProductUpdateComponent {
         })
       }, error => console.log(error.message)
       )
-      console.log(this.productForm);
+    }),
+      this.CategoryService.getCategories().subscribe((data) => {
+        this.categories = data
+      }, error => {
+        console.log(error.message);
 
-    })
+      })
 
   }
   onHandleUpdate() {
