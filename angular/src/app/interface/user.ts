@@ -6,4 +6,5 @@ export interface IUser {
     password?: string
     confirmpassword?: string
     address?: string
+    role?: string
 }

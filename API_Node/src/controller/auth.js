@@ -113,7 +113,7 @@ export const remove = async (req, res) => {
 export const update = async (req, res) => {
     
     try {
-        const { name, email, password, address } = req.body;
+        const { name, email, password, address, role } = req.body;
         const id = req.params.id;
         const body = req.body;
         const { error } = userSchema.validate(body, { abortEarly: false });
@@ -129,6 +129,7 @@ export const update = async (req, res) => {
             email,
             password: hashedPassword,
             address,
+            role,
         }, {
             new: true,
         });

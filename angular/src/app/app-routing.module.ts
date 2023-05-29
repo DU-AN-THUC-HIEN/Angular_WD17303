@@ -18,6 +18,8 @@ import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
+import { UserListComponent } from './pages/admin/adminUser/user-list/user-list.component';
+import { UserUpdateComponent } from './pages/admin/adminUser/user-update/user-update.component';
 
 const routes: Routes = [
   {
@@ -42,7 +44,9 @@ const routes: Routes = [
       { path: "products/:id/update", component: ProductUpdateComponent },
       { path: "categories", component: CategoryListComponent },
       { path: "categories/add", component: CategoryAddComponent },
-      { path: "categories/:id/update", component: CategoryEditComponent }
+      { path: "categories/:id/update", component: CategoryEditComponent },
+      { path: "user", component: UserListComponent},
+      { path: "user/:id/update", component: UserUpdateComponent}
 
     ]
 
