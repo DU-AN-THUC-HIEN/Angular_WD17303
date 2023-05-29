@@ -24,7 +24,7 @@ export const getAll = async (req, res) => {
 export const get = async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await Product.findById(id).populate("categoryId", "-__v");
+        const data = await Product.findById(id);
         if (data === 0) {
             return res.status(400).json({
                 message: "Hiện sản phẩm thất bại",

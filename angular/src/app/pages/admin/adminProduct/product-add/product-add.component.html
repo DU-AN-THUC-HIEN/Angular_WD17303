@@ -1,35 +1,33 @@
-<form>
+<form (ngSubmit)="onHandleAdd()" [formGroup]="productForm">
   <!-- Name book input -->
   <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example1">Tên sách</label>
-    <input type="text" id="form4Example1" class="form-control" />
+    <label class="form-label">Tên sách</label>
+    <input type="text" class="form-control" formControlName="name" />
   </div>
-
   <!-- Name User input -->
   <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example2">User Name</label>
-    <input type="email" id="form4Example2" class="form-control" />
-
+    <label class="form-label">User Name</label>
+    <input type="email" class="form-control" formControlName="author" />
   </div>
-
   <!-- Price input -->
   <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example2">Giá</label>
-    <input type="email" id="form4Example2" class="form-control" />
+    <label class="form-label">Giá</label>
+    <input type="email" class="form-control" formControlName="price" />
   </div>
-
   <!-- Image input -->
   <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example2">Ảnh</label>
-    <input type="file" id="form4Example2" class="form-control" />
+    <label class="form-label">Ảnh</label>
+    <input type="text" class="form-control" formControlName="image" />
   </div>
   <!-- Message input -->
   <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example3">Mô tả</label>
-    <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-
+    <label class="form-label">Mô tả</label>
+    <textarea class="form-control" rows="4" formControlName="description"></textarea>
   </div>
-
+  <select class="form-select" style="margin-bottom: 20px;" formControlName="categoryId">
+    <option selected disabled>Chọn danh mục</option>
+    <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+  </select>
 
   <!-- Submit button -->
   <button type="submit" class="btn btn-primary btn-block mb-4">Thêm Mới</button>
