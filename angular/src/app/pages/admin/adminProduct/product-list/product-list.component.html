@@ -1,6 +1,6 @@
+<div #notification class="notification"></div>
 <button class="btn btn-danger"><a routerLink="/admin/products/add" class="btn1">Thêm Mới</a></button>
 <table class="table table-striped">
-
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -9,6 +9,7 @@
       <th scope="col">Tác Giả</th>
       <th scope="col">Giá</th>
       <th scope="col">Mô Tả</th>
+      <th scope="col">Danh Mục</th>
       <th scope="col">Chức Năng</th>
     </tr>
   </thead>
@@ -22,11 +23,12 @@
       <td>{{product.author}}</td>
       <td>{{product.price}}</td>
       <td>{{product.description}}</td>
+      <td>{{product.category }}</td>
       <td>
         <button class="btn btn-danger " (click)="onHandleRemove(product._id)">Xóa</button>
-        <button class="btn btn-primary m-2 ">Sửa</button>
+        <button class="btn btn-primary m-2" routerLink="/admin/products/{{product._id}}/update">Sửa</button>
       </td>
     </tr>
-    
+
   </tbody>
 </table>
