@@ -4,6 +4,7 @@ import { ICategory } from 'src/app/interface/category';
 import { IProduct } from 'src/app/interface/product';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -41,11 +42,40 @@ export class ProductListComponent implements OnInit {
   }
 
   onHandleRemove(id: any) {
-    this.productService.removeProduct(id).subscribe(() => {
-      this.products = this.products.filter(item => item._id !== id);
-      this.showNotification('Xóa sản phẩm thành công');
+  
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Xóa sản phẩm
+          this.productService.removeProduct(id).subscribe(() => {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            this.products = this.products.filter(item => item._id !== id);
+          })
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          // Hiển thị thông báo hủy xóa sản phẩm
+          Swal.fire(
+            'Cancelled',
+            'Your product is safe :)',
+            'error'
+          )
+        }
+      })
+     
+     
 
-    })
+    
   }
   showNotification(msg: string) {
     this.notification.nativeElement.innerHTML = msg;

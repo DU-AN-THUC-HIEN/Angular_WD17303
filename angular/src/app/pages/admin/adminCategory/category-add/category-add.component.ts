@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ICategory } from 'src/app/interface/category';
 import { IProduct } from 'src/app/interface/product';
 import { CategoryService } from 'src/app/services/category/category.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-category-add',
   templateUrl: './category-add.component.html',
@@ -23,8 +24,17 @@ export class CategoryAddComponent {
         name: this.categoryForm.value.name || "",
       }
       this.CategoryService.addCategory(category).subscribe(category => {
-        console.log('Thêm sản phẩm thành công', category);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Category has been added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['/admin/categories'])
+      }, error => {
+        console.log(error.message);
+    
       })
     }
   }

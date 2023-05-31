@@ -5,6 +5,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ICategory } from 'src/app/interface/category';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-product-update',
   templateUrl: './product-update.component.html',
@@ -13,14 +14,14 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ProductUpdateComponent {
   categories: ICategory[] = [];
   product!: IProduct;
+  submitted = false;
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
-    author: ['', [Validators.required, Validators.minLength(4)]],
-    price: [0],
-    image: [''],
-    description: [''],
-    categoryId: ['']
-
+    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    image: ['',[Validators.required]],
+    price: [0, [Validators.required, Validators.min(1)]],
+    description: ['', [Validators.required, Validators.minLength(4)]],
+    categoryId: ['',[Validators.required]]
   })
 
   constructor(private categoryService: CategoryService,
@@ -42,7 +43,7 @@ export class ProductUpdateComponent {
         this.productForm.patchValue({
           name: this.product.name,
           author: this.product.author,
-          price: this.product.price,
+          price: this.product.price ,
           image: this.product.image,
           description: this.product.description,
           categoryId: this.product.categoryId
@@ -72,7 +73,17 @@ export class ProductUpdateComponent {
       console.log(newProduct);
 
       this.productService.updateProduct(newProduct).subscribe(product => {
-        this.router.navigate(['/admin/products'])
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Product has been added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       this.router.navigate(['/admin/products'])
+      }, error => {
+        console.log(error.message);
+        
       })
     }
   }

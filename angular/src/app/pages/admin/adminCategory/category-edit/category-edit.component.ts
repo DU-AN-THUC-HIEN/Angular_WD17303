@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ICategory } from 'src/app/interface/category';
 import { IProduct } from 'src/app/interface/product';
 import { CategoryService } from 'src/app/services/category/category.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-category-edit',
@@ -40,7 +41,17 @@ export class CategoryEditComponent {
       console.log(newCategory);
       
       this.categoryService.updateCategory(newCategory).subscribe(category=>{
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Category has been added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['/admin/categories'])
+      }, error => {
+        console.log(error.message);
       })
     }
   }
