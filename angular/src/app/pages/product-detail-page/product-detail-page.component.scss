@@ -260,6 +260,15 @@
     color: #888888;
 }
 
+.product-image img {
+    width: 100%;
+    height: 55%;
+}
+
+.product-item {
+    height: 350px;
+}
+
 @media screen and (max-width: 768px) {
     .products-grid .product-style {
         width: 45%;
