@@ -6,6 +6,7 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements AfterViewInit {
+  
   constructor() { }
 
   ngAfterViewInit() {
@@ -57,5 +58,6 @@ export class AdminLayoutComponent implements AfterViewInit {
       }
     })
     // 
+    
   }
 }
