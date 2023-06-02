@@ -20,6 +20,7 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
 import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
 import { UserListComponent } from './pages/admin/adminUser/user-list/user-list.component';
 import { UserUpdateComponent } from './pages/admin/adminUser/user-update/user-update.component';
+import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: "about", component: AboutPageComponent },
       { path: "contact", component: ContactUsPageComponent },
       { path: "blog", component: BlogViewPageComponent },
+      { path: "category/:id", component: CategoryDetailComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
       { path: "cart", component: CartComponent },
       { path: "signin", component: SignInComponent },
@@ -45,8 +47,8 @@ const routes: Routes = [
       { path: "categories", component: CategoryListComponent },
       { path: "categories/add", component: CategoryAddComponent },
       { path: "categories/:id/update", component: CategoryEditComponent },
-      { path: "user", component: UserListComponent},
-      { path: "user/:id/update", component: UserUpdateComponent}
+      { path: "user", component: UserListComponent },
+      { path: "user/:id/update", component: UserUpdateComponent }
 
     ]
 
