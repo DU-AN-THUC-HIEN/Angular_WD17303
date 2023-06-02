@@ -31,6 +31,7 @@ import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { UserListComponent } from './pages/admin/adminUser/user-list/user-list.component';
 import { UserUpdateComponent } from './pages/admin/adminUser/user-update/user-update.component';
+import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UserUpdateComponent } from './pages/admin/adminUser/user-update/user-up
     CategoryEditComponent,
     UserListComponent,
     UserUpdateComponent,
+    CategoryDetailComponent,
 
   ],
   imports: [

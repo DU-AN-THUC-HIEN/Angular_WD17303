@@ -1,15 +1,31 @@
-<section id="featured-books">
+<app-banner />
+<section id="popular-books" class="bookshelf">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
-                <!-- <div class="section-header align-center">
+                <div class="section-header align-center">
                     <div class="title">
-                        <span>Some quality items</span>
+                        <span>--Categories</span>
                     </div>
-                    <h2 class="section-title">Featured Books</h2>
-                </div> -->
+                    <h2 class="section-title">Explore our Top Categories</h2>
+                </div>
+                <ul class="tabs">
+                    <li routerLink="/" class="active tab">All Genre</li>
+                    <li *ngFor="let category of categories; index as i" routerLink="/category/{{category._id}}"
+                        class="tab">{{category.name}}</li>
+                </ul>
+            </div><!--inner-tabs-->
 
+        </div>
+    </div>
+
+</section>
+
+<section id="featured-books">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="product-list" data-aos="fade-up">
                     <div class="row">
 
@@ -67,3 +83,5 @@
                                 </div>
                             </div>
                         </section>
+                        <app-blog-page />
+                        <app-contact-page />
