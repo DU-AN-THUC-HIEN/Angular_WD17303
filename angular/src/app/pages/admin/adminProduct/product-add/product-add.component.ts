@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/interface/product';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
@@ -12,13 +13,15 @@ import { IProduct } from 'src/app/interface/product';
 })
 export class ProductAddComponent {
   categories: ICategory[] = [];
+  submitted = false;
+  
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
-    author: ['', [Validators.required, Validators.minLength(4)]],
-    image: [''],
-    price: [0],
-    description: [''],
-    categoryId: ['']
+    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    image: ['',[Validators.required]],
+    price: [null, [Validators.required, Validators.min(1)]],
+    description: ['', [Validators.required, Validators.minLength(4)]],
+    categoryId: ['',[Validators.required]]
   })
   constructor(private CategoryService: CategoryService,
     private productService: ProductService,
@@ -31,6 +34,7 @@ export class ProductAddComponent {
 
     })
   }
+  
   onHandleAdd() {
     if (this.productForm.valid) {
       const product: IProduct = {
@@ -42,8 +46,19 @@ export class ProductAddComponent {
         categoryId: this.productForm.value.categoryId || "",
       }
       this.productService.addProduct(product).subscribe(product => {
-        console.log('Thêm sản phẩm thành công', product);
-        this.router.navigate(['/admin/products'])
+         
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Product has been added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       this.router.navigate(['/admin/products'])
+      }, error => {
+        console.log(error.message);
+        
+        
       })
     }
   }
