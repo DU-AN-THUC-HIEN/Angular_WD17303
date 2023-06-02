@@ -9,74 +9,24 @@
                     </div>
                     <h2 class="section-title">Featured Books</h2>
                 </div> -->
+                
+                <div class="product-list" data-aos="fade-up" >
+                    <div class="row" >
 
-                <div class="product-list" data-aos="fade-up">
-                    <div class="row">
-
-                        <div class="col-md-3">
+                        <div class="col-md-3"*ngFor="let product of products"  >
                             <figure class="product-style">
-                                <img src="https://lh3.googleusercontent.com/hWnxjSM6BOHN-IKsMJD5nFwEP8khqIEYE9LX6rQ5k9R4yjjibfo3-Up-F2KtWpfNpMwSD5wOulRdARL7X6EYWKlvR9z58GBsaY0xdgMB"
+                                <img [src]="product.image"
                                     alt="Books" class="product-item">
                                 <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
                                     Cart</button>
                                 <figcaption>
-                                    <h3><a href="">Simple way of piece life</a></h3>
-                                    <p class="name">Armor Ramsey</p>
-                                    <div class="item-price">$ 40.00</div>
+                                    <h3><a href="">{{product.name}}</a></h3>
+                                    <p class="name">{{product.author}}</p>
+                                    <div class="item-price">{{product.price}}</div>
                                 </figcaption>
                             </figure>
                         </div>
 
-                        <div class="col-md-3">
-                            <figure class="product-style">
-                                <img src="https://lh3.googleusercontent.com/hWnxjSM6BOHN-IKsMJD5nFwEP8khqIEYE9LX6rQ5k9R4yjjibfo3-Up-F2KtWpfNpMwSD5wOulRdARL7X6EYWKlvR9z58GBsaY0xdgMB"
-                                    alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                    Cart</button>
-                                <figcaption>
-                                    <h3><a href="">Great travel at desert</a></h3>
-                                    <p class="name">Sanchit Howdy</p>
-                                    <div class="item-price">$ 38.00</div>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="col-md-3">
-                            <figure class="product-style">
-                                <img src="https://lh3.googleusercontent.com/hWnxjSM6BOHN-IKsMJD5nFwEP8khqIEYE9LX6rQ5k9R4yjjibfo3-Up-F2KtWpfNpMwSD5wOulRdARL7X6EYWKlvR9z58GBsaY0xdgMB"
-                                    alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                    Cart</button>
-                                <figcaption>
-                                    <h3><a href="">The lady beauty Scarlett</a></h3>
-                                    <p class="name">Arthur Doyle</p>
-                                    <div class="item-price">$ 45.00</div>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="col-md-3">
-                            <figure class="product-style">
-                                <img src="https://lh3.googleusercontent.com/hWnxjSM6BOHN-IKsMJD5nFwEP8khqIEYE9LX6rQ5k9R4yjjibfo3-Up-F2KtWpfNpMwSD5wOulRdARL7X6EYWKlvR9z58GBsaY0xdgMB"
-                                    alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                    Cart</button>
-                                <figcaption>
-                                    <h3><a href="">Once upon a time</a></h3>
-                                    <p class="name">Klien Marry</p>
-                                    <div class="item-price">$ 35.00</div>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                    </div><!--ft-books-slider-->
-                </div><!--grid-->
-
-
-            </div><!--inner-content-->
-        </div>
-    </div>
-</section>
 <section id="best-selling" class="leaf-pattern-overlay">
     <div class="corner-pattern-overlay"></div>
     <div class="container">
