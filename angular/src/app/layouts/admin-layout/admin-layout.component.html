@@ -71,13 +71,16 @@
                 <nav>
                         <i class='bx bx-menu'></i>
                         <a href="#" class="nav-link"></a>
-                        <form action="#">
+                        <form (ngSubmit)="onSearch()">
                                 <div class="form-input">
-                                        <input type="search" placeholder="Search...">
+                                        <input type="search" placeholder="Search..." [(ngModel)]="searchValue"
+                                                name="searchValue" (focusout)="onSearchBlur()">
                                         <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                                 </div>
+
                         </form>
-                        <input type="checkbox" id="switch-mode" hidden >
+
+                        <input type="checkbox" id="switch-mode" hidden>
                         <label for="switch-mode" class="switch-mode"></label>
                         <a href="#" class="notification">
                                 <i class='bx bxs-bell'></i>
@@ -88,10 +91,28 @@
                         </a>
                 </nav>
                 <!-- NAVBAR -->
-
+                <div *ngIf="searchResults.length " class="search-results">
+                        <ul class="list-group">
+                                <li class="list-group-item" *ngFor=" let product of searchResults">
+                                        <div class="container">
+                                                <img src="{{product.image}}" class="image">
+                                                <a routerLink="/product/{{product._id}}">{{product.name}}</a>
+                                                <p class="price">${{product.price}}</p>
+                                        </div>
+                                        <div class="action">
+                                                <button class="btn btn-danger"
+                                                        (click)="onHandleRemove(product._id)">Xóa</button>
+                                                <button class="btn btn-primary m-2"
+                                                        routerLink="/admin/products/{{product._id}}/update">Sửa</button>
+                                        </div>
+                                </li>
+                        </ul>
+                </div>
                 <!-- MAIN -->
                 <main>
+
                         <router-outlet />
+
                 </main>
                 <!-- MAIN -->
         </section>

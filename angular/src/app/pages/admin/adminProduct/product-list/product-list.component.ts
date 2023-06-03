@@ -14,7 +14,6 @@ import Swal from 'sweetalert2';
 export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   categories: ICategory[] = [];
-  @ViewChild('notification') notification!: ElementRef<HTMLDivElement>;
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
@@ -42,47 +41,39 @@ export class ProductListComponent implements OnInit {
   }
 
   onHandleRemove(id: any) {
-  
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'Cancel'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Xóa sản phẩm
-          this.productService.removeProduct(id).subscribe(() => {
-            Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
-            this.products = this.products.filter(item => item._id !== id);
-          })
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          // Hiển thị thông báo hủy xóa sản phẩm
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Xóa sản phẩm
+        this.productService.removeProduct(id).subscribe(() => {
           Swal.fire(
-            'Cancelled',
-            'Your product is safe :)',
-            'error'
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
           )
-        }
-      })
-     
-     
+          this.products = this.products.filter(item => item._id !== id);
+        })
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Hiển thị thông báo hủy xóa sản phẩm
+        Swal.fire(
+          'Cancelled',
+          'Your product is safe :)',
+          'error'
+        )
+      }
+    })
 
-    
-  }
-  showNotification(msg: string) {
-    this.notification.nativeElement.innerHTML = msg;
-    this.notification.nativeElement.style.display = 'block';
 
-    setTimeout(() => {
-      this.notification.nativeElement.style.display = 'none';
-    }, 3000);
+
+
   }
 }
