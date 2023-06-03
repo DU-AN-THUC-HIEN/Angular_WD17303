@@ -1,4 +1,8 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { IProduct } from 'src/app/interface/product';
+import { ProductService } from 'src/app/services/product/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-layout',
@@ -6,8 +10,13 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements AfterViewInit {
-  
-  constructor() { }
+  searchValue = '';
+  products: IProduct[] = [];
+  @Input() searchResults: IProduct[] = [];
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) { }
 
   ngAfterViewInit() {
     const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
@@ -58,6 +67,76 @@ export class AdminLayoutComponent implements AfterViewInit {
       }
     })
     // 
-    
+
   }
+
+  getProducts() {
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data.docs;
+    });
+  }
+
+  ngOnInit() {
+    this.getProducts();
+  }
+
+  onSearch() {
+    if (!this.searchValue.trim()) {
+      this.searchResults = [];
+      return;
+    }
+    this.productService.searchProducts(this.searchValue).subscribe((data: any) => {
+      this.searchResults = data.docs;
+
+    });
+  }
+  onSearchBlur() {
+    if (!this.searchValue.trim()) {
+      this.searchResults = [];
+    }
+  }
+  onHandleRemove(id: any) {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Xóa sản phẩm
+        this.productService.removeProduct(id).subscribe(() => {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          // Cập nhật lại danh sách sản phẩm
+          this.getProducts();
+
+          // Cập nhật lại kết quả tìm kiếm
+          if (this.searchValue.trim()) {
+            this.onSearch();
+          }
+          this.products = this.products.filter(item => item._id !== id);
+        })
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Hiển thị thông báo hủy xóa sản phẩm
+        Swal.fire(
+          'Cancelled',
+          'Your product is safe :)',
+          'error'
+        )
+      }
+    })
+
+
+
+
+  }
+
 }

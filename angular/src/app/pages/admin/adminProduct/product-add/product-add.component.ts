@@ -14,14 +14,14 @@ import Swal from 'sweetalert2';
 export class ProductAddComponent {
   categories: ICategory[] = [];
   submitted = false;
-  
+
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
-    author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
-    image: ['',[Validators.required]],
+    name: ['', [Validators.required, Validators.minLength(4)]],
+    author: ['', [Validators.required, Validators.minLength(4), Validators.pattern('^[^0-9]+$')]],
+    image: ['', [Validators.required]],
     price: [null, [Validators.required, Validators.min(1)]],
     description: ['', [Validators.required, Validators.minLength(4)]],
-    categoryId: ['',[Validators.required]]
+    categoryId: ['', [Validators.required]]
   })
   constructor(private CategoryService: CategoryService,
     private productService: ProductService,
@@ -34,7 +34,7 @@ export class ProductAddComponent {
 
     })
   }
-  
+
   onHandleAdd() {
     if (this.productForm.valid) {
       const product: IProduct = {
@@ -46,7 +46,7 @@ export class ProductAddComponent {
         categoryId: this.productForm.value.categoryId || "",
       }
       this.productService.addProduct(product).subscribe(product => {
-         
+
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -54,11 +54,11 @@ export class ProductAddComponent {
           showConfirmButton: false,
           timer: 1500
         })
-       this.router.navigate(['/admin/products'])
+        this.router.navigate(['/admin/products'])
       }, error => {
         console.log(error.message);
-        
-        
+
+
       })
     }
   }
