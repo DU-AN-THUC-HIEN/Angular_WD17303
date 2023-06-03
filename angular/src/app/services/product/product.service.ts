@@ -24,4 +24,8 @@ export class ProductService {
   removeProduct(id: number): Observable<IProduct> {
     return this.http.delete<IProduct>(`http://localhost:8080/api/products/${id}`)
   }
+  searchProducts(searchValue: string): Observable<IProduct[]> {
+    const url = `http://localhost:8080/api/products/?q=${searchValue}`;
+    return this.http.get<IProduct[]>(url);
+  }
 }

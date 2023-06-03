@@ -2,7 +2,7 @@ import Product from "../model/product";
 import Category from "../model/category"
 import { ProductSchema } from "../schemas/product";
 export const getAll = async (req, res) => {
-    const { _limit = 10, _sort = "createAt", _order = "asc", _page = 1 } = req.query;
+    const { _limit = 10, _sort = "createAt", _order = "asc", _page = 1, q } = req.query;
     const options = {
         page: _page,
         limit: _limit,
@@ -10,8 +10,10 @@ export const getAll = async (req, res) => {
             [_sort]: _order == "desc" ? -1 : 1,
         },
     };
+
+    const searchQuery = q ? { name: { $regex: q, $options: "i" } } : {};
     try {
-        const data = await Product.paginate({}, options);
+        const data = await Product.paginate(searchQuery, options);
         return res.status(200).json(data);
     } catch (error) {
         return res.status(400).json({

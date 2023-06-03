@@ -6,8 +6,19 @@
                     class="d-inline-block align-text-top logo">
             </div>
             <div class="col-lg-6">
-                <div class="search__container">
-                    <input class="search__input" type="text" placeholder="Search">
+                <form (ngSubmit)="onSearch()">
+                    <div class="form-input">
+                        <input type="search" placeholder="Search..." [(ngModel)]="searchValue" name="searchValue"
+                            (focusout)="onSearchBlur()">
+                        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                    </div>
+                </form>
+                <div *ngIf="searchResults.length ">
+                    <ul>
+                        <li *ngFor=" let product of searchResults">
+                            <a routerLink="/product/{{product._id}}">{{product.name}}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-4">
