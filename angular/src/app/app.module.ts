@@ -32,6 +32,9 @@ import { ProductViewComponent } from './components/product-view/product-view.com
 import { UserListComponent } from './pages/admin/adminUser/user-list/user-list.component';
 import { UserUpdateComponent } from './pages/admin/adminUser/user-update/user-update.component';
 import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
+import { BlogAddComponent } from './pages/admin/adminBlog/blog-add/blog-add.component';
+import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.component';
+import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { CategoryDetailComponent } from './pages/category-detail/category-detail
     UserListComponent,
     UserUpdateComponent,
     CategoryDetailComponent,
+    BlogAddComponent,
+    BlogEditComponent,
+    BlogListComponent,
 
   ],
   imports: [
