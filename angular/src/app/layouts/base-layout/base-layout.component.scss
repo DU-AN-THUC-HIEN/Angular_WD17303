@@ -9,6 +9,17 @@
     float: left;
 }
 
+.search-results {
+    margin-top: 5px;
+    border-radius: 20px;
+    z-index: 999;
+    background-color: #fff;
+    width: 100%;
+    // max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
 .logo {
     background: #C4C4C4;
     border-radius: 43px;
@@ -201,4 +212,23 @@ i.bx.bx-cart-download {
         color: #F9F9F9;
         background: #DB504A;
     }
+}
+
+.image {
+    width: 50px;
+    margin-left: 1%;
+    float: left;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    margin-left: 3%;
+    color: #111111;
+    font-weight: 500;
+}
+
+.price {
+    color: red;
+    font-weight: bold;
+    margin-left: 11%;
 }

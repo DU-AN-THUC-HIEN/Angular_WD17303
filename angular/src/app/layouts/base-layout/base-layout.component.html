@@ -13,10 +13,12 @@
                         <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                     </div>
                 </form>
-                <div *ngIf="searchResults.length ">
-                    <ul>
-                        <li *ngFor=" let product of searchResults">
+                <div *ngIf="searchResults.length " class="search-results">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor=" let product of searchResults">
+                            <img src="{{product.image}}" class="image">
                             <a routerLink="/product/{{product._id}}">{{product.name}}</a>
+                            <p class="price">${{product.price}}</p>
                         </li>
                     </ul>
                 </div>
