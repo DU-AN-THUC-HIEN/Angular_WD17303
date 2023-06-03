@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const blogSchema = mongoose.Schema({
-    name: {
+    author: {
         type: String,
         required: true,
     },
@@ -11,8 +11,8 @@ const blogSchema = mongoose.Schema({
     },
     image:{
         type: String
-    }
-
+    },
+    
 }, { timestamps: true, versionKey: false });
 
 export default mongoose.model("Blog", blogSchema);
