@@ -3,18 +3,28 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/interface/user';
 import { UserService } from 'src/app/services/user/user.service';
-
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+import Swal from 'sweetalert2';
+export function customEmailValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const valid = emailPattern.test(control.value);
+    return valid ? null : { invalidEmail: { message: 'Email không hợp lệ.' } };
+  };
+}
 @Component({
   selector: 'app-user-update',
   templateUrl: './user-update.component.html',
   styleUrls: ['./user-update.component.scss']
 })
 export class UserUpdateComponent {
+  submitted=false;
   user!: IUser;
+  
   userForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
-    email: ['', [Validators.required, Validators.email]],
-    address: ['', [Validators.required]],
+    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    email: ['', [Validators.required, Validators.email,customEmailValidator()]],
+    address: ['', [Validators.required,Validators.minLength(6),Validators.pattern('^[^0-9]+$')]],
     role: [''],
     password: ['', [Validators.required]]
   })
@@ -43,16 +53,27 @@ export class UserUpdateComponent {
       const newCategory: IUser = {
         _id: this.user._id,
         name: this.userForm.value.name || "",
-        email: this.userForm.value.email || "",
+        email: this.userForm.value.email || "", 
         address: this.userForm.value.address || "",
         role: this.userForm.value.role || "",
         password: this.userForm.value.password || ""
       }      
-      console.log(newCategory);
-      
-      this.userService.updateUser(newCategory).subscribe(user=>{
+      this.userService.updateUser(newCategory).subscribe(user => {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Product has been added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['/admin/user'])
+      }, error => {
+        console.log(error.message);
+
+
       })
     }
+  
   }
 }

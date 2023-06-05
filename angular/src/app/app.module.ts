@@ -26,7 +26,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
 import { BlogViewPageComponent } from './pages/blog-view-page/blog-view-page.component';
 import { ProductListComponent } from './pages/admin/adminProduct/product-list/product-list.component';
-import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
+
 import { CategoryEditComponent } from './pages/admin/adminCategory/category-edit/category-edit.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { UserListComponent } from './pages/admin/adminUser/user-list/user-list.component';
@@ -35,6 +35,7 @@ import { CategoryDetailComponent } from './pages/category-detail/category-detail
 import { BlogAddComponent } from './pages/admin/adminBlog/blog-add/blog-add.component';
 import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.component';
 import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.component';
+import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.c
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
 
   ],
   providers: [],

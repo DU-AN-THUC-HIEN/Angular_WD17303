@@ -10,9 +10,11 @@ import Swal from 'sweetalert2';
   templateUrl: './category-add.component.html',
   styleUrls: ['./category-add.component.scss']
 })
+
 export class CategoryAddComponent {
+  submitted=false
   categoryForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
+    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
 
   })
   constructor(private CategoryService: CategoryService,
