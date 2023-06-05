@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from 'src/app/interface/product';
+const Token = JSON.parse(localStorage.getItem('user')!) || [];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,13 +18,25 @@ export class ProductService {
     return this.http.get<IProduct>(`http://localhost:8080/api/products/${id}`);
   }
   addProduct(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>('http://localhost:8080/api/products', product);
+    return this.http.post<IProduct>('http://localhost:8080/api/products', product, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    });
   }
   updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(`http://localhost:8080/api/products/${product._id}`, product)
+    return this.http.patch<IProduct>(`http://localhost:8080/api/products/${product._id}`, product, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    })
   }
   removeProduct(id: number): Observable<IProduct> {
-    return this.http.delete<IProduct>(`http://localhost:8080/api/products/${id}`)
+    return this.http.delete<IProduct>(`http://localhost:8080/api/products/${id}`, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    })
   }
   searchProducts(searchValue: string): Observable<IProduct[]> {
     const url = `http://localhost:8080/api/products/?q=${searchValue}`;

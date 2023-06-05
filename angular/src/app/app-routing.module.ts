@@ -24,6 +24,7 @@ import { CategoryDetailComponent } from './pages/category-detail/category-detail
 import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.component';
 import { BlogAddComponent } from './pages/admin/adminBlog/blog-add/blog-add.component';
 import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: "admin", component: AdminLayoutComponent, children: [
+    path: "admin", component: AdminLayoutComponent, canActivate: [authGuard], children: [
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
       { path: "dashboard", component: DashboardComponent },
       { path: "products", component: ProductListComponent },

@@ -28,8 +28,14 @@ export class SignInComponent {
         password: this.userForm.value.password || "",
       }
       this.UserService.signIn(user).subscribe(response => {
-        localStorage.setItem("user", JSON.stringify(response.user));
-        this.Router.navigate(['/admin']);
+        localStorage.setItem("user", JSON.stringify(response));
+        const storedUser: any = localStorage.getItem('user');
+        const { user } = JSON.parse(storedUser);
+        if (user.role == "admin") {
+          this.Router.navigate(['/admin']);
+        } else {
+          this.Router.navigate(['/']);
+        }
       })
     }
   }
