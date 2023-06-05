@@ -133,10 +133,10 @@ export class AdminLayoutComponent implements AfterViewInit {
         )
       }
     })
-
-
-
-
   }
 
+  onHandleOut() {
+    localStorage.removeItem("user")
+    this.router.navigate(['/'])
+  }
 }

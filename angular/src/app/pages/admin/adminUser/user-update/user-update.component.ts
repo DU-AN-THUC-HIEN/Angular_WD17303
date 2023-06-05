@@ -18,15 +18,15 @@ export function customEmailValidator(): ValidatorFn {
   styleUrls: ['./user-update.component.scss']
 })
 export class UserUpdateComponent {
-  submitted=false;
+  submitted = false;
   user!: IUser;
-  
+
   userForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
-    email: ['', [Validators.required, Validators.email,customEmailValidator()]],
-    address: ['', [Validators.required,Validators.minLength(6),Validators.pattern('^[^0-9]+$')]],
+    name: ['', [Validators.required, Validators.minLength(4)]],
+    email: ['', [Validators.required, Validators.email, customEmailValidator()]],
+    address: ['', [Validators.required, Validators.minLength(6)]],
     role: [''],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
   constructor(private userService: UserService,
@@ -36,7 +36,7 @@ export class UserUpdateComponent {
     this.route.paramMap.subscribe(params => {
       const id = String(params.get('id'));
       this.userService.getUserById(id).subscribe(user => {
-        this.user = user;        
+        this.user = user;
         this.userForm.patchValue({
           name: this.user.name,
           email: this.user.email,
@@ -53,11 +53,11 @@ export class UserUpdateComponent {
       const newCategory: IUser = {
         _id: this.user._id,
         name: this.userForm.value.name || "",
-        email: this.userForm.value.email || "", 
+        email: this.userForm.value.email || "",
         address: this.userForm.value.address || "",
         role: this.userForm.value.role || "",
         password: this.userForm.value.password || ""
-      }      
+      }
       this.userService.updateUser(newCategory).subscribe(user => {
 
         Swal.fire({
@@ -74,6 +74,6 @@ export class UserUpdateComponent {
 
       })
     }
-  
+
   }
 }
