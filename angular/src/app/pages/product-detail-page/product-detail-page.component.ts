@@ -15,7 +15,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProductDetailPageComponent {
   quantity: number = 1;
-  product !: IProduct
+  product !: IProduct;
+  comment !: IComment[];
   products: IProduct[] = [];
   categories: ICategory[] = [];
   formData: { description: string, userId: string, productId: string } = { description: '', userId: '', productId: '' };
@@ -41,6 +42,12 @@ export class ProductDetailPageComponent {
         this.formData.productId = id;
       }, error => console.log(error.message)
       )
+      // -------------------------
+      this.CommentService.getCommentByProduct(id).subscribe((comment: any) => {
+        this.comment = comment.comments;
+        console.log(this.comment);
+
+      })
       // -------------------------
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
@@ -77,7 +84,12 @@ export class ProductDetailPageComponent {
       const formValue = this.commentForm.value;
       this.CommentService.addComment(formValue).subscribe((data: IComment) => {
         console.log("Thêm bình luận thành công");
-
+        this.route.paramMap.subscribe(params => {
+          const id = String(params.get('id'));
+          this.CommentService.getCommentByProduct(id).subscribe((comment: any) => {
+            this.comment = comment.comments;
+          })
+        });
       })
     }
 

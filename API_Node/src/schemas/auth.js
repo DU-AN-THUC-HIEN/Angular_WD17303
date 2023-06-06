@@ -11,7 +11,7 @@ export const userSchema = Joi.object({
         "any.required": "Trường email là bắt buộc",
         "string.email": "Email phải đúng định dạng"
     }),
-    password: Joi.string().min(6).required().messages({
+    password: Joi.string().min(6).messages({
         "string.empty": "Password không được để trống",
         "any.required": "Trường password là bắt buộc",
         "string.min": "Ít phất phải 6 kí tự",
@@ -23,6 +23,8 @@ export const userSchema = Joi.object({
     }),
     address: Joi.string(),
     role: Joi.string(),
+    image: Joi.string()
+
 });
 
 export const signInSchema = Joi.object({

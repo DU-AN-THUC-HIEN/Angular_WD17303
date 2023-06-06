@@ -26,7 +26,8 @@ export class UserUpdateComponent {
     email: ['', [Validators.required, Validators.email, customEmailValidator()]],
     address: ['', [Validators.required, Validators.minLength(6)]],
     role: [''],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    image: ['']
+    // password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
   constructor(private userService: UserService,
@@ -42,7 +43,7 @@ export class UserUpdateComponent {
           email: this.user.email,
           address: this.user.address,
           role: this.user.role,
-          password: this.user.password,
+          image: this.user.image
         })
       }, error => console.log(error.message)
       )
@@ -56,7 +57,8 @@ export class UserUpdateComponent {
         email: this.userForm.value.email || "",
         address: this.userForm.value.address || "",
         role: this.userForm.value.role || "",
-        password: this.userForm.value.password || ""
+        image: this.userForm.value.image || "",
+
       }
       this.userService.updateUser(newCategory).subscribe(user => {
 
