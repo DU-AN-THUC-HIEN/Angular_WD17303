@@ -21,17 +21,17 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3" *ngFor="let blog of blogs">
                         <article class="column" data-aos="fade-up">
                             <figure>
                                 <a href="#" class="image-hvr-effect">
-                                    <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
+                                    <img [src]="blog.image"
                                         alt="post" class="post-image">
                                 </a>
                             </figure>
                             <div class="post-item">
-                                <div class="meta-date">Mar 30, 2021</div>
-                                <h3><a href="#">Reading books always makes the moments happy</a></h3>
+                                <div class="meta-date">{{blog.author}}</div>
+                                <h3><a href="#">{{blog.description}}</a></h3>
                             </div>
                         </article>
                     </div>
