@@ -5,7 +5,7 @@ import { create, getCommentFromProduct, getOneComment, removeComment, updateComm
 const routerComment = express.Router();
 
 routerComment.get("/comment/:productId", getCommentFromProduct)
-routerComment.get("/comment/:id", getOneComment)
+routerComment.get("/comment/:id/detail", getOneComment)
 routerComment.post("/comment", create)
 routerComment.put("/comment/:id", updateComment, checkPermission)
 routerComment.delete("/comment/:id", removeComment)
