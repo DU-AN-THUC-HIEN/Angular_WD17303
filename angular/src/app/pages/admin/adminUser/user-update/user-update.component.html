@@ -24,7 +24,7 @@
     </div>
 
   </div>
-  <div class="form-outline mb-4">
+  <!-- <div class="form-outline mb-4">
     <label class="form-label" for="form4Example1">Password</label>
     <input type="password" formControlName="password" class="form-control" />
     <div *ngIf="userForm.controls.password?.errors?.['required'] && userForm.controls.password?.touched  || submitted"
@@ -34,6 +34,14 @@
     <div *ngIf="userForm.controls.password?.errors?.['minlength'] && userForm.controls.password?.touched"
       class="text-danger">
       Password có ít nhất 6 ký tự
+    </div>
+  </div> -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Ảnh Đại Diện</label>
+    <input type="text" formControlName="image" class="form-control" />
+    <div *ngIf="userForm.controls.image?.errors?.['required'] && userForm.controls.image?.touched  || submitted"
+      class="text-danger">
+      Ảnh đại diện là bắt buộc
     </div>
   </div>
   <div class="form-outline mb-4">

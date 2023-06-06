@@ -1,7 +1,9 @@
 export interface IComment {
     _id?: string,
-    userId?: string,
+    userId?: any,
     productId?: string,
     description?: string,
+    createdAt?: string,
+    updatedAt?: string
 
 }
