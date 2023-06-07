@@ -1,4 +1,3 @@
-
 <table class="table table-striped">
 
   <thead>
@@ -6,15 +5,17 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col">Avatar</th>
       <th scope="col">Địa Chỉ</th>
       <th scope="col">Role</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let users1 of users;index as i">
-      <td  scope="row">{{i + 1}}</td>
+      <td scope="row">{{i + 1}}</td>
       <td>{{users1.name}}</td>
       <td>{{users1.email}}</td>
+      <td><img src="{{users1.image}}" width="50"></td>
       <td>{{users1.address}}</td>
       <td>{{users1.role}}</td>
       <td>

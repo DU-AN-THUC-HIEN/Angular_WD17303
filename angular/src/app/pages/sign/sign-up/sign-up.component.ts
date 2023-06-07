@@ -27,7 +27,8 @@ export class SignUpComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmpassword: ['', Validators.required],
-      address: ['']
+      address: [''],
+      image: ['']
     }, {
       validator: this.passwordMatchValidator
     });
@@ -53,6 +54,8 @@ export class SignUpComponent {
         password: this.userForm.value.password || "",
         confirmpassword: this.userForm.value.confirmpassword || "",
         address: this.userForm.value.address || "",
+        image: this.userForm.value.image || "",
+
       }
       this.userService.signUp(user).subscribe(user => {
         this.router.navigate(['/signin']);

@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import user from "../model/user";
 export const signUp = async (req, res) => {
     try {
-        const { name, email, password, address } = req.body;
+        const { name, email, password, address, image } = req.body;
         const body = req.body;
         const { error } = userSchema.validate(body, { abortEarly: false });
         if (error) {
@@ -26,6 +26,7 @@ export const signUp = async (req, res) => {
             email,
             password: hashedPassword,
             address,
+            image
         });
         data.password = undefined;
 
@@ -111,9 +112,9 @@ export const remove = async (req, res) => {
     }
 };
 export const update = async (req, res) => {
-    
+
     try {
-        const { name, email, password, address, role } = req.body;
+        const { name, email, address, image, role } = req.body;
         const id = req.params.id;
         const body = req.body;
         const { error } = userSchema.validate(body, { abortEarly: false });
@@ -123,13 +124,12 @@ export const update = async (req, res) => {
                 message: errors
             })
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const data = await user.findByIdAndUpdate({ _id: id },{
+        const data = await user.findByIdAndUpdate({ _id: id }, {
             name,
             email,
-            password: hashedPassword,
             address,
             role,
+            image
         }, {
             new: true,
         });

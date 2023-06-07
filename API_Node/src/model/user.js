@@ -20,6 +20,9 @@ const userSchema = mongoose.Schema({
     role: {
         type: String,
         default: "member"
+    },
+    image: {
+        type: String
     }
 });
 
