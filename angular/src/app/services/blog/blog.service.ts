@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IBlog } from 'src/app/interface/blog';
+const Token = JSON.parse(localStorage.getItem('user')!) || [];
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,24 @@ export class BlogService {
     return this.http.get<IBlog>(`http://localhost:8080/api/blogs/${id}`);
   }
   addBlog(blog: IBlog): Observable<IBlog> {
-    return this.http.post<IBlog>('http://localhost:8080/api/blogs', blog);
+    return this.http.post<IBlog>('http://localhost:8080/api/blogs', blog, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    });
   }
   updateBlog(blog: IBlog): Observable<IBlog> {
-    return this.http.patch<IBlog>(`http://localhost:8080/api/blogs/${blog._id}`, blog)
+    return this.http.patch<IBlog>(`http://localhost:8080/api/blogs/${blog._id}`, blog, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    })
   }
   removeBlog(id: number): Observable<IBlog> {
-    return this.http.delete<IBlog>(`http://localhost:8080/api/blogs/${id}`)
+    return this.http.delete<IBlog>(`http://localhost:8080/api/blogs/${id}`, {
+      headers: {
+        Authorization: `Bearer ${Token.accessToken}`
+      }
+    })
   }
 }

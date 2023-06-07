@@ -8,7 +8,7 @@ export const getCommentFromProduct = async (req, res) => {
     try {
         const comments = await Comment.find({ productId: productId }).populate({
             path: 'userId',
-            select: 'name email defaultAvatar',
+            select: 'name email image',
         });
         if (!comments) {
             return res.status(404).json({
