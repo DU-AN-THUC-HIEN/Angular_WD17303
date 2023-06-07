@@ -19,7 +19,7 @@ export class ProductDetailPageComponent {
   comment !: IComment[];
   products: IProduct[] = [];
   categories: ICategory[] = [];
-  formData: { description: string, userId: string, productId: string } = { description: '', userId: '', productId: '' };
+  formData: { description: string, userId: string | any, productId: string } = { description: '', userId: '', productId: '' };
   commentForm = this.FormBuilder.group({
     userId: [''], // Truyền giá trị của userId từ instance của IProduct
     productId: [''], // Truyền giá trị của productId từ instance của IProduct
@@ -94,4 +94,14 @@ export class ProductDetailPageComponent {
     }
 
   }
+
+  onHandleRemove(id: string | any) {
+    // Thực hiện xoá bình luận
+    this.CommentService.removeComment(id).subscribe(comment => {
+      const newComment = this.comment.filter((cm) => cm._id != id);
+      this.comment = newComment;
+    });
+  }
+
+
 }
