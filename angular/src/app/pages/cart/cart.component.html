@@ -10,7 +10,8 @@
             <header>
                 <a class="remove">
                     <img src="{{product.image}}" alt="">
-                    <h3>Remove product</h3>
+                    <h3 *ngIf="product.productId" (click)="handleRemoveProductInCart(product.productId)">Remove product
+                    </h3>
                 </a>
             </header>
             <div class="content">

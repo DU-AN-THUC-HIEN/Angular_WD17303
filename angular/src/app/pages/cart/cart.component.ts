@@ -25,7 +25,13 @@ export class CartComponent implements AfterViewInit {
 
   userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).user._id : ''
   //------------------------------------
+  handleRemoveProductInCart(productId: string) {
+    this.CartService.removeProductInCart(this.userId, productId).subscribe(() => {
+      const newCart = this.cart.data.products.filter((ca: any) => ca.productId != productId);
+      this.cart.data.products = newCart
+    })
 
+  }
   // -----------------------------------
   decreaseQuantity() {
     if (this.quantity > 1) {
