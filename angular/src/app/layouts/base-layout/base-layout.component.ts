@@ -45,15 +45,18 @@ export class BaseLayoutComponent {
 
   ngOnInit() {
     this.getProducts();
-    if (this.userId === '') return
+    if (this.userId === '') return;
     this.CartService.getCart(this.userId).subscribe(cart => {
-      this.cart = cart
-      this.productsInCart = this.cart?.data.products
-    })
-    const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).accessToken : ''
+      this.cart = cart;
+      if (this.cart && this.cart.data) {
+        this.productsInCart = this.cart.data.products;
+        this.cartItemCount = this.productsInCart.length; // Thêm dòng này để cập nhật cartItemCount
+      }
+    });
+    const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).accessToken : '';
     console.log(token);
-
   }
+
 
   onSearch() {
     if (!this.searchValue.trim()) {

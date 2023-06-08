@@ -27,8 +27,8 @@
                 <div class="font">
                     <i class='bx bxs-heart user1'></i>
                 </div>
-                <div style="color: red; font-weight: bold;" class="font" matBadge="{{ productsInCart.length }}"
-                    [matBadgeHidden]="productsInCart.length === 0" mat-raised-button matBadgePosition="after"
+                <div style="color: red; font-weight: bold;" class="font" matBadge="{{ cartItemCount }}"
+                    [matBadgeHidden]="cartItemCount === 0" mat-raised-button matBadgePosition="after"
                     matBadgeColor="warn">
                     <a routerLink="/cart" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
                         <i class='bx bx-cart cart'></i>
