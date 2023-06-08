@@ -7,4 +7,6 @@ export interface IProduct {
     description?: string
     categoryId?: string,
     category?: string
+    quantity?: number | any
+    productId?: string
 }

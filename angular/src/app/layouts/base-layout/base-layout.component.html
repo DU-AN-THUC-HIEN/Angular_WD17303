@@ -24,9 +24,39 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <a routerLink="signin" class="font">
-                    <i class='bx bxs-user-circle'>ACCOUNT</i></a>
-                <a href="" class="font"><i class='bx bx-cart-download'>CART</i></a>
+                <div class="font">
+                    <i class='bx bxs-heart user1'></i>
+                </div>
+                <div style="color: red; font-weight: bold;" class="font" matBadge="{{ productsInCart.length }}"
+                    [matBadgeHidden]="productsInCart.length === 0" mat-raised-button matBadgePosition="after"
+                    matBadgeColor="warn">
+                    <a routerLink="/cart" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bx-cart cart'></i>
+                    </a>
+
+                </div>
+                <div class="font">
+                    <div class="p-1 dropdown">
+                        <a id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false"
+                            (click)="openDialog('signin')">
+                            <i class='bx bxs-user user1'></i>
+                        </a>
+                        <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
+                            <div class="d-flex flex-column align-items-center">
+                                <p (click)="openDialog('signin')" class="open-modal">Sign in</p>
+                                <p (click)="openDialog('signup')" class="open-modal">Sign up</p>
+                            </div>
+                        </ul>
+                    </div>
+                    <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
+                        <div class="d-flex flex-column align-items-center">
+                            <p (click)="openDialog('signin')" class="open-modal">Sign in</p>
+                            <p (click)="openDialog('signup')" class="open-modal">Sign up</p>
+                        </div>
+                    </ul>
+                </div>
+
+
             </div>
             <hr class="hr-full">
         </div>
