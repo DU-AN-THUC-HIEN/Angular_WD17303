@@ -39,13 +39,12 @@ export const deleteImage = async (req: Request, res: Response) => {
 };
 export const updateImage = async (req: Request, res: Response) => {
     const files = req.files as Express.Multer.File[];
-    if (!Array.isArray(files)) {
+    if (!Array.isArray(files) || files.length === 0) {
         return res.status(400).json({ error: 'No files were uploaded' });
     }
 
     const publicId = req.params.publicId; // Lấy publicId của ảnh cần cập nhật
-    const newImage = req.files[0].path; // Lấy đường dẫn của ảnh mới
-
+    const newImage = files[0].path; // Lấy đường dẫn của ảnh mới
     try {
         // Upload ảnh mới lên Cloudinary và xóa ảnh cũ cùng lúc
         const [uploadResult, deleteResult] = await Promise.all([
@@ -58,6 +57,7 @@ export const updateImage = async (req: Request, res: Response) => {
         console.log(error);
         return res.status(500).json({ error: error.message || "Error updating image" });
     }
+
 };
 
 

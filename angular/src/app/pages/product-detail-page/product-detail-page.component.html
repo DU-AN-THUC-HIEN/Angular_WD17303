@@ -3,18 +3,18 @@
         <div class="row">
 
             <div class="col-md-6">
-                <a href="#" class="product-image"><img src="{{product.image}}"></a>
+                <a href="#" class="product-image"><img *ngIf="product?.image?.url" src="{{product.image?.url}}"></a>
             </div>
 
             <div class="col-md-6 pl-5">
                 <div class="product-detail">
-                    <h1 class="section-title">{{product.name}}</h1>
+                    <h1 class="section-title" *ngIf="product?.name">{{product.name}}</h1>
                     <div class="sl ">Tác giả</div>
-                    <p class="fic">{{product.author}}</p>
+                    <p class="fic" *ngIf="product?.author">{{product.author}}</p>
                     <div class="sl ">Giá </div>
-                    <span class="price">${{product.price}}</span>
+                    <span class="price" *ngIf="product?.price">${{product.price}}</span>
                     <div class="sl ">Mô Tả</div>
-                    <p class="description">
+                    <p class="description" *ngIf="product?.description">
                         {{product.description}}
                     </p>
                     <div class="input-group il">
@@ -42,7 +42,7 @@
                 <div class="d-flex flex-column comment-section">
                     <div class="bg-white p-2" *ngFor="let cm of comment">
                         <div class="d-flex flex-row user-info"><img class="rounded-circle"
-                                src="{{cm.userId.image ?? 'https://via.placeholder.com/300x300?text=No+Image'}}"
+                                src="{{cm.userId.image.url ?? 'https://via.placeholder.com/300x300?text=No+Image'}}"
                                 width="60" height="60">
                             <div class="d-flex flex-column justify-content-start ml-2"><span
                                     class="d-block font-weight-bold name1">{{cm.userId.name}}</span><span
@@ -57,12 +57,14 @@
                         </div>
 
                     </div>
-                    <div class="bg-light p-2">
+                    <div class="bg-light p-2" *ngIf="formData.userId">
                         <form (ngSubmit)="onHandleAddComment()" [formGroup]="commentForm">
                             <input type="hidden" formControlName="userId">
                             <input type="hidden" formControlName="productId">
                             <div class="d-flex flex-row align-items-start">
-                                <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                <img class="rounded-circle"
+                                    src="https://res.cloudinary.com/diqyzhuc2/image/upload/v1683285518/hoaUi/icon_sacea8-removebg_gkhuzj.png"
+                                    width="40">
                                 <textarea class="form-control ml-1 shadow-none textarea"
                                     formControlName="description"></textarea>
                             </div>
@@ -72,7 +74,9 @@
                                     type="button">Cancel</button>
                             </div>
                         </form>
-
+                    </div>
+                    <div class="bg-light p-2" *ngIf="!formData.userId">
+                        <p class="tb">Bạn chưa đăng nhập.</p>
                     </div>
                 </div>
             </div>

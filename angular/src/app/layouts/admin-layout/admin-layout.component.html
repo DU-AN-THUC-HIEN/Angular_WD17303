@@ -101,7 +101,7 @@
                         <ul class="list-group">
                                 <li class="list-group-item" *ngFor=" let product of searchResults">
                                         <div class="container">
-                                                <img src="{{product.image}}" class="image">
+                                                <img src="{{product.image.url}}" class="image">
                                                 <a routerLink="/product/{{product._id}}">{{product.name}}</a>
                                                 <p class="price">${{product.price}}</p>
                                         </div>

@@ -9,6 +9,33 @@
     margin-right: 8%;
 }
 
+.drop-user {
+    position: absolute;
+    min-width: 150px;
+    right: 0;
+}
+
+.avatar {
+    width: 50px !important;
+    border-radius: 70px;
+    height: 50px;
+}
+
+.flex-column {
+    text-decoration: none;
+    color: #393280;
+}
+
+.btn-logout {
+    width: 100%;
+    border: 1px solid darkorange !important;
+    color: darkorange !important;
+    background-color: white !important;
+    padding: 0.2rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
 .search-results {
     margin-top: 5px;
     border-radius: 20px;
@@ -223,7 +250,16 @@ i.bx.bx-cart-download {
     cursor: pointer;
 }
 
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
 .dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 

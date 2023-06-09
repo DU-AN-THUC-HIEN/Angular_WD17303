@@ -38,11 +38,12 @@
   </div> -->
   <div class="form-outline mb-4">
     <label class="form-label" for="form4Example1">Ảnh Đại Diện</label>
-    <input type="text" formControlName="image" class="form-control" />
-    <div *ngIf="userForm.controls.image?.errors?.['required'] && userForm.controls.image?.touched  || submitted"
-      class="text-danger">
-      Ảnh đại diện là bắt buộc
-    </div>
+    <input type="text" type="file" id="image" accept="image/*" (change)="onSelectImage($event)" class="form-control"
+      name="images" />
+  </div>
+  <div class="image-preview">
+    <img [src]="user.image.url" alt="Product Image" *ngIf="user?.image.url" class="mb-4" />
+
   </div>
   <div class="form-outline mb-4">
     <label class="form-label" for="form4Example1">Địa Chỉ</label>
@@ -69,5 +70,5 @@
     </select>
   </div>
   <!-- Submit button -->
-  <button type="submit " class="btn btn-primary btn-block mb-4">Sửa Sản Phẩm</button>
+  <button type="submit " class="btn btn-primary btn-block mb-4" [disabled]="!userForm.valid">Cập Nhật</button>
 </form>

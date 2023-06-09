@@ -17,7 +17,7 @@
       <th scope="row">{{i+1}}</th>
       <td>{{product.name}}</td>
       <td>
-        <img [src]="product.image" alt="" width="70">
+        <img [src]="product.image?.url" alt="" width="70">
       </td>
       <td>{{product.author}}</td>
       <td>{{product.price}}</td>

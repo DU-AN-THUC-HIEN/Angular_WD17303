@@ -24,64 +24,27 @@
                 <div class="post-grid">
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-4" *ngFor="let blog of blogs">
 
                             <article class="post-item">
 
                                 <figure>
                                     <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
+                                        <img [src]="blog.image"
                                             alt="post" class="post-image">
                                     </a>
                                 </figure>
 
                                 <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending design</a>
+                                    <div class="meta-date">{{blog.author}}</div>
+                                    <h3 class="post-title"><a href="#">{{blog.title}}</a>
                                     </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
+                                    <p>{{blog.description}}</p>
                                 </div>
                             </article>
 
                         </div>
 
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms pop-out</a>
-                                    </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
 
                     </div>
                 </div>
@@ -90,151 +53,8 @@
             </div>
 
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="post-grid">
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending design</a>
-                                    </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms pop-out</a>
-                                    </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="post-grid">
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending design</a>
-                                    </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms pop-out</a>
-                                    </h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="https://lh3.googleusercontent.com/iCS8s0r1igePUEdgVC1AygoZ1bsBG5JoNCrck1nDyY0YIDijDvucNYpga0chDW_tlDJrjy-Zyx6MBxiUDt4uqY7C1CPsXr2788IZaMKh7g"
-                                            alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla
-                                        blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+        
+                   
 
 
     </div>
