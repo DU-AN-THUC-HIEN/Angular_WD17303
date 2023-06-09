@@ -57,12 +57,14 @@
                         </div>
 
                     </div>
-                    <div class="bg-light p-2">
+                    <div class="bg-light p-2" *ngIf="formData.userId">
                         <form (ngSubmit)="onHandleAddComment()" [formGroup]="commentForm">
                             <input type="hidden" formControlName="userId">
                             <input type="hidden" formControlName="productId">
                             <div class="d-flex flex-row align-items-start">
-                                <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                <img class="rounded-circle"
+                                    src="https://res.cloudinary.com/diqyzhuc2/image/upload/v1683285518/hoaUi/icon_sacea8-removebg_gkhuzj.png"
+                                    width="40">
                                 <textarea class="form-control ml-1 shadow-none textarea"
                                     formControlName="description"></textarea>
                             </div>
@@ -72,7 +74,9 @@
                                     type="button">Cancel</button>
                             </div>
                         </form>
-
+                    </div>
+                    <div class="bg-light p-2" *ngIf="!formData.userId">
+                        <p class="tb">Bạn chưa đăng nhập.</p>
                     </div>
                 </div>
             </div>

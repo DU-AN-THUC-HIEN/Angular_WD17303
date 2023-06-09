@@ -15,7 +15,6 @@ export class BaseLayoutComponent {
   cart !: Icart
   productsInCart: IProduct[] = []
   cartItemCount: number = 0;
-
   searchValue = '';
   products: IProduct[] = [];
   @Input() searchResults: IProduct[] = [];
@@ -28,7 +27,7 @@ export class BaseLayoutComponent {
     private dialog: MatDialog,
 
   ) { }
-  userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).user._id : ''
+  userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)?.user?._id : ''
   openDialog(type: 'signin' | 'signup') {
     if (type === 'signup') {
       this.router.navigate(['/signup'])
@@ -36,6 +35,17 @@ export class BaseLayoutComponent {
     if (type === 'signin') {
       this.router.navigate(['/signin'])
     }
+  }
+  // 
+  getUserInfo() {
+    const userInfo = JSON.parse(localStorage.getItem('user')!)
+    console.log(userInfo);
+
+    return userInfo
+  }
+  handleLogout() {
+    const logout = localStorage.removeItem('user');
+    return logout
   }
   getProducts() {
     this.productService.getProducts().subscribe((data: any) => {
