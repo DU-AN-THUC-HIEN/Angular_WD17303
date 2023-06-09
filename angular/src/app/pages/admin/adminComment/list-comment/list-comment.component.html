@@ -18,7 +18,7 @@
         <td>{{comment.description}}</td>
         <td>{{comment.createdAt}}</td>
       <td>
-        <button class="btn btn-danger ">Xóa</button>
+        <button class="btn btn-danger " (click)="onHandleRemove(comment._id)">Xóa</button>
       </td>
     </tr>
 
