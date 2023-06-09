@@ -95,7 +95,7 @@
                     <div class="row">
                         <div class="col-md-3" *ngFor="let product of products">
                             <figure class="product-style">
-                                <img src="{{product.image.url}}" class="product-item">
+                                <img src="{{product.image}}" class="product-item">
                                 <button type="button" class="add-to-cart"
                                     routerLink="/product/{{product._id}}">Detail</button>
                                 <figcaption>
