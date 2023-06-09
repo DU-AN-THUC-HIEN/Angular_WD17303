@@ -1,40 +1,44 @@
 <form (ngSubmit)="onHandleUpdate()" [formGroup]="blogForm">
-    <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example1">Tác giả</label>
-      <input type="text" formControlName="author" class="form-control" />
-      <div *ngIf="blogForm.controls.author?.errors?.['required'] && blogForm.controls.author?.touched  || submitted" class="text-danger">
-        Tên tác giả là bắt buộc
-      </div>
-      <div *ngIf="blogForm.controls.author?.errors?.['minlength'] && blogForm.controls.author?.touched" class="text-danger">
-        Tên tác giả có ít nhất 4 ký tự
-      </div>
-      <div *ngIf="blogForm.controls.author?.errors?.['pattern'] && blogForm.controls.author?.touched" class="text-danger">
-        Tên tác giả không được chứa số
-      </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Tác giả</label>
+    <input type="text" formControlName="author" class="form-control" />
+    <div *ngIf="blogForm.controls.author?.errors?.['required'] && blogForm.controls.author?.touched  || submitted"
+      class="text-danger">
+      Tên tác giả là bắt buộc
     </div>
-  
-    <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example1">Mô tả</label>
-      <input type="text" formControlName="description" class="form-control" />
-      <div *ngIf="blogForm.controls.description?.errors?.['required'] && blogForm.controls.description?.touched  || submitted" class="text-danger">
-        Mô tả là bắt buộc
-      </div>
-      <div *ngIf="blogForm.controls.description?.errors?.['minlength'] && blogForm.controls.description?.touched" class="text-danger">
-        Mô tả có ít nhất 4 ký tự
-      </div>
+    <div *ngIf="blogForm.controls.author?.errors?.['minlength'] && blogForm.controls.author?.touched"
+      class="text-danger">
+      Tên tác giả có ít nhất 4 ký tự
     </div>
-    
-    <div class="form-outline mb-4">
-        <label class="form-label">Ảnh</label>
-        <input type="text" class="form-control" formControlName="image" />
-        <!-- Hiển thị thông báo lỗi cho trường "Ảnh" -->
-        <div *ngIf="blogForm.controls.image?.errors?.['required'] && blogForm.controls.image?.touched  || submitted" class="text-danger">
-            Mô tả là bắt buộc
-          </div>
-      </div>
-  
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-danger btn-block mb-4">Update</button>
-  </form>
+    <div *ngIf="blogForm.controls.author?.errors?.['pattern'] && blogForm.controls.author?.touched" class="text-danger">
+      Tên tác giả không được chứa số
+    </div>
+  </div>
 
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Mô tả</label>
+    <input type="text" formControlName="description" class="form-control" />
+    <div
+      *ngIf="blogForm.controls.description?.errors?.['required'] && blogForm.controls.description?.touched  || submitted"
+      class="text-danger">
+      Mô tả là bắt buộc
+    </div>
+    <div *ngIf="blogForm.controls.description?.errors?.['minlength'] && blogForm.controls.description?.touched"
+      class="text-danger">
+      Mô tả có ít nhất 4 ký tự
+    </div>
+  </div>
 
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Ảnh Đại Diện</label>
+    <input type="text" type="file" id="image" accept="image/*" (change)="onSelectImage($event)" class="form-control"
+      name="images" />
+  </div>
+  <div class="image-preview">
+    <img [src]="blog.image.url" alt="Product Image" *ngIf="blog?.image.url" class="mb-4" />
+
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger btn-block mb-4" [disabled]="!blogForm.valid">Update</button>
+</form>

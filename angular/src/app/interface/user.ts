@@ -6,6 +6,10 @@ export interface IUser {
     password?: string
     confirmpassword?: string
     address?: string
-    image?: string
+    image?: IImage | any
     role?: string
+}
+export interface IImage {
+    url: string;
+    publicId: string;
 }

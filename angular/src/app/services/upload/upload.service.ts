@@ -20,4 +20,15 @@ export class UploadService {
     }
     return this.http.post(`http://localhost:8080/api/images/upload`, formData);
   }
+  updateImage(publicId: string, files: any[]): Observable<any> {
+    const formData = new FormData();
+    if (Array.isArray(files)) {
+      files.forEach((file, index) => {
+        formData.append(`images[${index}]`, file);
+      });
+    } else {
+      formData.append('images', files);
+    }
+    return this.http.put(`http://localhost:8080/api/images/${publicId}`, formData);
+  }
 }
