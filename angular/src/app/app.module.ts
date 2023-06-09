@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog'
+
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -78,7 +81,9 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    
+    MatBadgeModule,
+    MatDialogModule,
+
 
   ],
   providers: [],

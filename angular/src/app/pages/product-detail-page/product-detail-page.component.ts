@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/interface/category';
 import { IComment } from 'src/app/interface/comment';
 import { IProduct } from 'src/app/interface/product';
-import { CategoryService } from 'src/app/services/category/category.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import Swal from 'sweetalert2';
+
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -15,6 +17,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProductDetailPageComponent {
   quantity: number = 1;
+  countCMT: any
   product !: IProduct;
   comment !: IComment[];
   products: IProduct[] = [];
@@ -25,19 +28,22 @@ export class ProductDetailPageComponent {
     productId: [''], // Truyền giá trị của productId từ instance của IProduct
     description: ['']
   })
-
+  userCart = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
   constructor(
-    private categoryService: CategoryService,
+    private CartService: CartService,
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
     private CommentService: CommentService,
-    private FormBuilder: FormBuilder
+    private FormBuilder: FormBuilder,
+    private elementRef: ElementRef
   ) {
     this.route.paramMap.subscribe(params => {
       const id = String(params.get('id'));
       this.productService.getProductById(id).subscribe(product => {
         this.product = product;
+        this.scrollToTop()
+
         // set idProduct in formData
         this.formData.productId = id;
       }, error => console.log(error.message)
@@ -45,7 +51,7 @@ export class ProductDetailPageComponent {
       // -------------------------
       this.CommentService.getCommentByProduct(id).subscribe((comment: any) => {
         this.comment = comment.comments;
-        console.log(this.comment);
+        this.countCMT = this.comment.length
 
       })
       // -------------------------
@@ -67,7 +73,10 @@ export class ProductDetailPageComponent {
       console.log(this.products);
     })
   }
-
+  // ----------------------------
+  scrollToTop() {
+    this.elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   // -------------------------------
   decreaseQuantity() {
     if (this.quantity > 1) {
@@ -88,6 +97,7 @@ export class ProductDetailPageComponent {
           const id = String(params.get('id'));
           this.CommentService.getCommentByProduct(id).subscribe((comment: any) => {
             this.comment = comment.comments;
+            this.countCMT = this.comment.length
           })
         });
       })
@@ -102,6 +112,27 @@ export class ProductDetailPageComponent {
       this.comment = newComment;
     });
   }
+  // ---------------------------------
 
 
+  handleAddToCart() {
+    const data: any = {
+      productId: this.product._id,
+      name: this.product.name,
+      price: this.product.price,
+      image: this.product.image,
+      quantity: this.quantity,
+    }
+
+    this.CartService.addToCart(data, this.userCart.user._id).subscribe(cart => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Đã thêm sản phẩm vào giỏ hàng!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
+
+  }
 }

@@ -47,7 +47,13 @@
     line-height: 208%;
     letter-spacing: 0.02em;
     color: #7A7A7A;
-    margin-top: 3%;
+}
+
+.tb {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
 }
 
 .cart {
@@ -322,4 +328,21 @@
     margin-top: 1%;
     color: #393280;
     margin-bottom: 3%;
+}
+
+#updateQuantity span {
+    padding: 0 7px;
+}
+
+.qua {
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
 }
