@@ -14,7 +14,9 @@ import Swal from 'sweetalert2';
 export class BlogAddComponent {
   submitted = false;
   blogForm = this.formBuilder.group({
-    author: ['', [Validators.required, Validators.minLength(4), Validators.pattern('^[^0-9]+$')]],
+
+    author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    title: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
     description: ['', [Validators.required, Validators.minLength(4)]],
     image: ['', [Validators.required]]
   })
@@ -41,6 +43,7 @@ export class BlogAddComponent {
       const blog: IBlog = {
         author: this.blogForm.value.author || "",
         image: "", // Khởi tạo giá trị rỗng
+        title: this.blogForm.value.title || "",
         description: this.blogForm.value.description || "",
       }
       const imageFormData: any = this.blogForm.value.image; // Lưu trữ FormData vào biến imageFormData

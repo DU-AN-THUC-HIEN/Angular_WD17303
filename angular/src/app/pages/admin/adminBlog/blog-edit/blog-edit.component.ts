@@ -15,7 +15,8 @@ export class BlogEditComponent {
   blog!: IBlog;
   submitted = false;
   blogForm = this.formBuilder.group({
-    author: ['', [Validators.required, Validators.minLength(4), Validators.pattern('^[^0-9]+$')]],
+    author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    title: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
     description: ['', [Validators.required, Validators.minLength(4)]],
     image: ['']
   })
@@ -33,6 +34,7 @@ export class BlogEditComponent {
         this.blog = blog;
         this.blogForm.patchValue({
           author: this.blog.author,
+          title: this.blog.title,
           description: this.blog.description,
         })
       }, error => console.log(error.message)
@@ -57,6 +59,7 @@ export class BlogEditComponent {
         _id: this.blog._id,
         author: this.blogForm.value.author || "",
         image: this.blog.image, // Sử dụng ảnh cũ mặc định
+        title: this.blogForm.value.title || "",
         description: this.blogForm.value.description || "",
       }
       if (this.selectedImage) {

@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Author</th>
+      <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Image</th>
       <th scope="col">CreateAt</th>
@@ -16,6 +17,7 @@
     <tr *ngFor="let blog of blogs; index as i">
       <td scope="row">{{i+1}}</td>
       <td>{{blog.author}}</td>
+      <td>{{blog.title}}</td>
       <td>{{blog.description}}</td>
       <td><img src="{{blog.image.url}}" width="70"></td>
       <td>{{blog.createdAt}}</td>
