@@ -42,7 +42,7 @@
       name="images" />
   </div>
   <div class="image-preview">
-    <img [src]="user.image.url" alt="Product Image" *ngIf="user?.image.url" class="mb-4" />
+    <img [src]="user.image.url" alt="Product Image" *ngIf="user?.image?.url" class="mb-4" />
 
   </div>
   <div class="form-outline mb-4">
@@ -70,5 +70,5 @@
     </select>
   </div>
   <!-- Submit button -->
-  <button type="submit " class="btn btn-primary btn-block mb-4" [disabled]="!userForm.valid">Cập Nhật</button>
+  <button type="submit " class="btn btn-primary btn-block mb-4">Cập Nhật</button>
 </form>

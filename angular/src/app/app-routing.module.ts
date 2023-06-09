@@ -25,6 +25,7 @@ import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.c
 import { BlogAddComponent } from './pages/admin/adminBlog/blog-add/blog-add.component';
 import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.component';
 import { authGuard } from './auth.guard';
+import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
 
 const routes: Routes = [
   {
@@ -55,7 +56,8 @@ const routes: Routes = [
       { path: "blogs/add", component: BlogAddComponent },
       { path: "blogs/:id/update", component: BlogEditComponent },
       { path: "user", component: UserListComponent },
-      { path: "user/:id/update", component: UserUpdateComponent }
+      { path: "user/:id/update", component: UserUpdateComponent },
+      {path: "comments", component: ListCommentComponent}
 
     ]
 
