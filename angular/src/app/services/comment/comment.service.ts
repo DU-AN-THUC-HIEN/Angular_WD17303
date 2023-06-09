@@ -25,4 +25,7 @@ export class CommentService {
   updateComment(comment: IComment): Observable<IComment> {
     return this.http.post<IComment>(`http://localhost:8080/api/comment/${comment._id}`, comment)
   }
+  getAllComment(): Observable<IComment[]>{
+    return this.http.get<IComment[]>(`http://localhost:8080/api/comment`)
+  }
 }
