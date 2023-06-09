@@ -104,3 +104,24 @@ export const removeComment = async (req, res) => {
         });
     }
 }
+//  Get all tất cả bình luận
+export const getAll = async (req, res) => {
+    try {
+      const comments = await Comment.find().populate({
+        path: 'productId',
+        select: 'name',
+      }).populate({
+        path: 'userId',
+        select: 'name email image',
+      });
+      res.status(200).json({
+        message: 'Lấy tất cả bình luận thành công',
+        comments,
+      });
+    } catch (error) {
+      res.status(400).json({
+        message: error.message,
+      });
+    }
+  };
+  
