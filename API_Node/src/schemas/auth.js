@@ -23,7 +23,7 @@ export const userSchema = Joi.object({
     }),
     address: Joi.string(),
     role: Joi.string(),
-    image: Joi.string()
+    image: Joi.object()
 
 });
 

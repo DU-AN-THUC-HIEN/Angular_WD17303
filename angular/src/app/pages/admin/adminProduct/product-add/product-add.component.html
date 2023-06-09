@@ -55,9 +55,9 @@
   <!-- Image input -->
   <div class="form-outline mb-4">
     <label class="form-label">Ảnh</label>
-    <input type="text" class="form-control" formControlName="image" />
+    <input type="file" class="form-control" name="images" (change)="onSelectImage($event)" />
     <!-- Hiển thị thông báo lỗi cho trường "Ảnh" -->
-    <div *ngIf="productForm.controls.image?.errors?.['required'] && productForm.controls.image?.touched || submitted"
+    <div *ngIf="productForm.get('image')?.errors?.['required'] && (productForm.get('image')?.touched || submitted)"
       class="text-danger">
       Ảnh là bắt buộc
     </div>

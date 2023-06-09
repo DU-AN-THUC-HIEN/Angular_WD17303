@@ -3,10 +3,14 @@ export interface IProduct {
     name?: string,
     author?: string,
     price?: number,
-    image?: string,
+    image?: IImage | any,
     description?: string
     categoryId?: string,
     category?: string
     quantity?: number | any
     productId?: string
+}
+export interface IImage {
+    url: string;
+    publicId: string;
 }

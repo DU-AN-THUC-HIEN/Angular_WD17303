@@ -13,10 +13,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    image:{
-        type: String
+    image: {
+        type: Object
     },
-    
+
 }, { timestamps: true, versionKey: false });
 
 export default mongoose.model("Blog", blogSchema);
