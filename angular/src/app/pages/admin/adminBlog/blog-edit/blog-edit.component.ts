@@ -15,6 +15,7 @@ export class BlogEditComponent {
   submitted = false;
   blogForm = this.formBuilder.group({
     author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    title: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
     description: ['', [Validators.required, Validators.minLength(4)]],
     image:['',[Validators.required]]
   })
@@ -29,6 +30,7 @@ export class BlogEditComponent {
         this.blog = blog;        
         this.blogForm.patchValue({
           author: this.blog.author,
+          title: this.blog.title,
           description: this.blog.description,
           image: this.blog.image
         })
@@ -41,6 +43,7 @@ export class BlogEditComponent {
       const newBlog: IBlog = {
         _id: this.blog._id,
         author: this.blogForm.value.author || "",
+        title: this.blogForm.value.title || "",
         image: this.blogForm.value.image||"",
         description: this.blogForm.value.description || "",
       }      

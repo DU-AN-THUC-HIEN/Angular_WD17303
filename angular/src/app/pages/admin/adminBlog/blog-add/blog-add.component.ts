@@ -14,6 +14,7 @@ export class BlogAddComponent {
   submitted = false;
   blogForm = this.formBuilder.group({
     author: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
+    title: ['', [Validators.required, Validators.minLength(4),Validators.pattern('^[^0-9]+$')]],
     description: ['', [Validators.required, Validators.minLength(4)]],
     image:['',[Validators.required]]
   })
@@ -27,6 +28,7 @@ export class BlogAddComponent {
     if (this.blogForm.valid) {
       const blog: IBlog = { 
         author: this.blogForm.value.author || "",
+        title: this.blogForm.value.title || "",
         image: this.blogForm.value.image||"",
         description: this.blogForm.value.description || "",
   
