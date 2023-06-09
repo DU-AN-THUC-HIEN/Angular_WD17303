@@ -12,7 +12,7 @@ const productsSchema = mongoose.Schema({
         require: true,
     },
     price: Number,
-    image: String,
+    image: Object,
     description: String,
     categoryId: {
         type: mongoose.Types.ObjectId,
