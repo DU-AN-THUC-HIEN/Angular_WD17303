@@ -42,7 +42,7 @@
                 <div class="d-flex flex-column comment-section">
                     <div class="bg-white p-2" *ngFor="let cm of comment">
                         <div class="d-flex flex-row user-info"><img class="rounded-circle"
-                                src="{{cm.userId.image ?? 'https://via.placeholder.com/300x300?text=No+Image'}}"
+                                src="{{cm.userId.image.url ?? 'https://via.placeholder.com/300x300?text=No+Image'}}"
                                 width="60" height="60">
                             <div class="d-flex flex-column justify-content-start ml-2"><span
                                     class="d-block font-weight-bold name1">{{cm.userId.name}}</span><span

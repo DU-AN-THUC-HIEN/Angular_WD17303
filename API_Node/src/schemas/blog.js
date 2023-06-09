@@ -6,7 +6,7 @@ export const BlogSchema = Joi.object({
         "any.required": "Trường tên danh mục là bắt buộc",
     }),
     description: Joi.string(),
-    image: Joi.string().required().messages({
+    image: Joi.object().required().messages({
         "string.empty": "Ảnh bắt buộc nhập",
         "any.required": "Trường ảnh bắt buộc nhập"
     }),
