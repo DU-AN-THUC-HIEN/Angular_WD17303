@@ -13,6 +13,20 @@
         Tên tác giả không được chứa số
       </div>
     </div>
+    
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example1">tiêu đề</label>
+    <input type="text" formControlName="title" class="form-control" />
+    <div *ngIf="blogForm.controls.title?.errors?.['required'] && blogForm.controls.title?.touched  || submitted" class="text-danger">
+      tiêu đề là bắt buộc
+    </div>
+    <div *ngIf="blogForm.controls.title?.errors?.['minlength'] && blogForm.controls.title?.touched" class="text-danger">
+      tiêu đề có ít nhất 6 ký tự
+    </div>
+    <div *ngIf="blogForm.controls.title?.errors?.['pattern'] && blogForm.controls.title?.touched" class="text-danger">
+      tiêu đề không được chứa số
+    </div>
+  </div>
   
     <div class="form-outline mb-4">
         <label class="form-label" for="form4Example1">Mô tả</label>
