@@ -28,7 +28,9 @@ export class BaseLayoutComponent {
     private dialog: MatDialog,
 
   ) { }
-  userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).user._id : ''
+  
+  userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).user?._id : ''
+
   openDialog(type: 'signin' | 'signup') {
     if (type === 'signup') {
       this.router.navigate(['/signup'])
@@ -50,7 +52,7 @@ export class BaseLayoutComponent {
       this.cart = cart;
       if (this.cart && this.cart.data) {
         this.productsInCart = this.cart.data.products;
-        this.cartItemCount = this.productsInCart.length; // Thêm dòng này để cập nhật cartItemCount
+        this.cartItemCount = this.productsInCart?.length ??0; // Thêm dòng này để cập nhật cartItemCount
       }
     });
     const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).accessToken : '';

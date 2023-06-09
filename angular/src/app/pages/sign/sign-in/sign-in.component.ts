@@ -24,7 +24,7 @@ export class SignInComponent {
   onHandleSignin() {
     if (this.userForm.valid) {
       const user: IUser = {
-        email: this.userForm.value.email || "",
+        email: this.userForm.value.email?.trim() || "",
         password: this.userForm.value.password || "",
       }
       this.UserService.signIn(user).subscribe(response => {
@@ -36,7 +36,13 @@ export class SignInComponent {
         } else {
           this.Router.navigate(['/']);
         }
-      })
+      }, (error) => {
+      
+        this.errorMessage = error.error.message
+        
+         // Gán thông báo lỗi từ phản hồi
+      }
+      )
     }
   }
 }
