@@ -7,15 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class UploadService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
-  AddImage(images: any): Observable<any> {
-    return this.http.post(`http://localhost:8080/api/images/upload`, images, {
-      headers: {
-        "Content-Type": "application/form-data"
-      },
-    });
+  AddImage(files: any[]): Observable<any> {
+    const formData = new FormData();
+    if (Array.isArray(files)) {
+      files.forEach((file, index) => {
+        formData.append(`images[${index}]`, file);
+      });
+    } else {
+      formData.append('images', files);
+    }
+    return this.http.post(`http://localhost:8080/api/images/upload`, formData);
   }
 }

@@ -61,9 +61,13 @@
                                 <label>Address</label>
                                 <input type="text" class="form-control" formControlName="address">
                             </div>
-                            <div class="form-group">
-                                <label>Avatar</label>
-                                <input type="text" class="form-control" formControlName="image">
+                            <!-- Image input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Ảnh</label>
+                                <input type="file" class="form-control" name="images"
+                                    (change)="onSelectImage($event)" />
+                                <!-- Hiển thị thông báo lỗi cho trường "Ảnh" -->
+
                             </div>
                             <button class="btn signin">Register</button>
                             <a href="" class="forgot">Forgot Password</a>

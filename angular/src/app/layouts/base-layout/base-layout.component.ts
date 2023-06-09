@@ -18,6 +18,7 @@ export class BaseLayoutComponent {
   searchValue = '';
   products: IProduct[] = [];
   @Input() searchResults: IProduct[] = [];
+  showLogoutDropdown: boolean = false;
 
 
   constructor(
@@ -39,8 +40,6 @@ export class BaseLayoutComponent {
   // 
   getUserInfo() {
     const userInfo = JSON.parse(localStorage.getItem('user')!)
-    console.log(userInfo);
-
     return userInfo
   }
   handleLogout() {
@@ -64,7 +63,6 @@ export class BaseLayoutComponent {
       }
     });
     const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).accessToken : '';
-    console.log(token);
   }
 
 

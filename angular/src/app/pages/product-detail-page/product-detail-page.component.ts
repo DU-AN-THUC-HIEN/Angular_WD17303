@@ -70,7 +70,6 @@ export class ProductDetailPageComponent {
     // ----------------------------------
     this.productService.getProducts().subscribe((products: any) => {
       this.products = products.docs.filter((product: IProduct) => product.categoryId === this.product.categoryId);
-      console.log(this.products);
     })
   }
   // ----------------------------
@@ -120,9 +119,10 @@ export class ProductDetailPageComponent {
       productId: this.product._id,
       name: this.product.name,
       price: this.product.price,
-      image: this.product.image,
+      image: this.product.image?.url,
       quantity: this.quantity,
     }
+    console.log(data);
 
     this.CartService.addToCart(data, this.userCart.user._id).subscribe(cart => {
       Swal.fire({
