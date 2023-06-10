@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.c
 import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.component';
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,9 @@ import { ListCommentComponent } from './pages/admin/adminComment/list-comment/li
 
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
