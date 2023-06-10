@@ -57,7 +57,7 @@ const routes: Routes = [
       { path: "blogs/:id/update", component: BlogEditComponent },
       { path: "user", component: UserListComponent },
       { path: "user/:id/update", component: UserUpdateComponent },
-      {path: "comments", component: ListCommentComponent}
+      { path: "comments", component: ListCommentComponent }
 
     ]
 
