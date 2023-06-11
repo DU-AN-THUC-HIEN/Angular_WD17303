@@ -42,7 +42,7 @@
                 <a class="btn btn1" routerLink="/">Tiếp Tục Mua Hàng</a>
             </div>
             <div class="right">
-                <h1 class="total">Total: <span>{{cart?.data?.total}}</span>$</h1>
+                <h1 class="total">Total: <span>{{cart && cart.data && cart.data.total}}</span>$</h1>
                 <a class="btn">THANH TOÁN</a>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/interface/category';
 import { IProduct } from 'src/app/interface/product';
@@ -11,7 +12,8 @@ import Swal from 'sweetalert2';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent {
+  @ViewChild(MatPaginator) paginator: MatPaginator
   products: IProduct[] = [];
   categories: ICategory[] = [];
   constructor(
@@ -19,20 +21,63 @@ export class ProductListComponent implements OnInit {
     private categoryService: CategoryService,
     private route: ActivatedRoute,
 
-  ) { }
+  ) {
+    this.paginator = {} as MatPaginator
+  }
+  pagination = {
+    hasNextPage: true,
+    hasPrevPage: false,
+    limit: 1,
+    nextPage: 1,
+    page: 1,
+    pagingCounter: 1,
+    prevPage: null,
+    totalDocs: 1,
+    totalPages: 1
+  }
+
+  limit = 6
+
+  formattedPagination: any = {}
 
   async ngOnInit() {
     try {
-      const productsData: any = await this.productService.getProducts().toPromise();
-      this.products = productsData.docs;
-      const categoriesData: any = await this.categoryService.getCategories().toPromise();
-      this.categories = categoriesData;
-      this.mapCategoryToProducts();
+      this.getProduct(1);
+
+      this.categoryService.getCategories().subscribe(
+        (categoriesData: any) => {
+          this.categories = categoriesData;
+          // Gọi hàm mapCategoryToProducts() sau khi nhận được dữ liệu danh mục
+          this.mapCategoryToProducts();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     } catch (error) {
       console.log(error);
     }
   }
 
+  pageIndex: any
+  onPageChange(event: any): void {
+    this.pageIndex = event.pageIndex // Lấy chỉ mục trang mới
+    this.limit = event.pageSize // Lấy kích thước trang
+    this.getProduct(this.pageIndex + 1) // Lấy dữ liệu cho trang mới
+  }
+  getProduct(page: number): void {
+    this.productService.getAllProducts(this.limit, page).subscribe((res: any) => {
+      this.products = res.docs
+      this.formattedPagination.length = res.totalDocs
+      this.formattedPagination.pageIndex = res.page - 1
+      this.formattedPagination.pageSize = res.limit
+      this.formattedPagination.pageSizeOptions = [3, 6]
+      this.formattedPagination.totalPages = res.totalPages
+      this.formattedPagination.page = res.page
+      this.mapCategoryToProducts();
+
+    })
+  }
   mapCategoryToProducts() {
     this.products = this.products.map((product: IProduct) => {
       const category = this.categories.find((category: ICategory) => category._id === product.categoryId);

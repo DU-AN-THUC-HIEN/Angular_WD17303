@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule } from '@angular/material/dialog'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -86,7 +88,8 @@ import { AuthInterceptor } from './auth.interceptor';
     ReactiveFormsModule,
     MatBadgeModule,
     MatDialogModule,
-
+    MatPaginatorModule,
+    BrowserAnimationsModule
 
   ],
   providers: [
