@@ -29,4 +29,8 @@ export class ProductService {
     const url = `http://localhost:8080/api/products/?q=${searchValue}`;
     return this.http.get<IProduct[]>(url);
   }
+  getAllProducts(limit: number, page: number): Observable<IProduct[]> {
+    const url = `http://localhost:8080/api/products?_limit=${limit}&_page=${page}`;
+    return this.http.get<IProduct[]>(url);
+  }
 }

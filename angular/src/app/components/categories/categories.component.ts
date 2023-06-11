@@ -9,11 +9,11 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class CategoriesComponent {
   categories: ICategory[] = [];
-      constructor(private CategoryService: CategoryService){
-        this.CategoryService.getCategories().subscribe((data)=>{
-          this.categories = data
-        }, error =>{
-          console.log(error.message);  
-        })
-      }
+  constructor(private CategoryService: CategoryService) {
+    this.CategoryService.getCategories().subscribe((data) => {
+      this.categories = data
+    }, error => {
+      console.log(error.message);
+    })
+  }
 }

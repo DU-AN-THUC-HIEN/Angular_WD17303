@@ -32,8 +32,8 @@
                         <div class="col-md-3" *ngFor="let product of products">
                             <figure class="product-style">
                                 <img [src]="product?.image.url" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                    Cart</button>
+                                <button type="button" class="add-to-cart"
+                                    data-product-tile="add-to-cart">Detail</button>
                                 <figcaption>
                                     <h3><a routerLink="/product/{{product._id}}">{{product.name}}</a></h3>
                                     <p class="name">{{product.author}}</p>
