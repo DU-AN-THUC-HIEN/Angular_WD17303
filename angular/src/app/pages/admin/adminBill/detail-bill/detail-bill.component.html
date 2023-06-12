@@ -1,0 +1,40 @@
+<div class="box-detail-order">
+    <p class="title">Thông tin đơn hàng</p>
+    <div class="sub-detail-order">
+        <div class="info-clident">
+            <form>
+                <p class="name-clident">Họ và tên : <span> {{bills.name}}
+                    </span></p>
+                <p class="phone">Số điện thoại : <span> {{bills.phone}}
+                    </span></p>
+                <p class="address">Địa chỉ : <span> {{bills.address}}
+                    </span></p>
+                <p class="address">Ngày đặt hàng: <span> {{bills.createdAt}}
+                    </span></p>
+                <p class="total-price">Tổng đơn hàng : <span> ${{bills.total}}
+
+                    </span></p>
+                <!-- <div class="btn-status">
+                    <input type="radio" value="Đang giao hàng" hidden name="status" id="check1">
+                    <label for="check1">Đơn Hàng Mới</label>
+                    <input type="radio" value="2" hidden name="status" id="check2">
+                    <label for="check2">Xác Nhận Đơn</label>
+                    <input type="radio" value="3" hidden name="status" id="check3">
+                    <label for="check3">Giao Thành Công</label>
+                </div> -->
+                <button type="submit" value="Đang giao hàng">Xác nhận đơn hàng</button>
+            </form>
+        </div>
+        <div class="list-product-order" >
+            <div class="item-order-product" *ngFor="let bill of billproduct">
+                <div class="item-left">
+                    <img src="{{bill.image}}" class="img">
+                </div>
+                <div class="item-right">
+                    <p class="name-product-order">Sản phẩm : <span>{{bill.name}}</span></p>
+                    <p class="quantity-porduct-order">Số Lượng : <span>{{bill.quantity}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -44,6 +44,8 @@ import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/c
 import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { PayComponent } from './pages/pay/pay.component';
+import { ListBillComponent } from './pages/admin/adminBill/list-bill/list-bill.component';
+import { DetailBillComponent } from './pages/admin/adminBill/detail-bill/detail-bill.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { PayComponent } from './pages/pay/pay.component';
     BlogListComponent,
     ListCommentComponent,
     PayComponent,
+    ListBillComponent,
+    DetailBillComponent,
 
   ],
   imports: [
