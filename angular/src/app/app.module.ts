@@ -43,6 +43,7 @@ import { BlogListComponent } from './pages/admin/adminBlog/blog-list/blog-list.c
 import { CategoryAddComponent } from './pages/admin/adminCategory/category-add/category-add.component';
 import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { PayComponent } from './pages/pay/pay.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { AuthInterceptor } from './auth.interceptor';
     BlogEditComponent,
     BlogListComponent,
     ListCommentComponent,
+    PayComponent,
 
   ],
   imports: [

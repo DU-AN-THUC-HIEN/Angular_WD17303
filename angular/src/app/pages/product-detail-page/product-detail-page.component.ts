@@ -115,6 +115,13 @@ export class ProductDetailPageComponent {
 
 
   handleAddToCart() {
+    if (!this.userCart.user) {
+      // Hiển thị thông báo hoặc chuyển hướng đến trang đăng nhập
+      console.log("Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.");
+      this.router.navigate(['/signin']);
+      return;
+    }
+
     const data: any = {
       productId: this.product._id,
       name: this.product.name,

@@ -26,6 +26,7 @@ import { BlogAddComponent } from './pages/admin/adminBlog/blog-add/blog-add.comp
 import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.component';
 import { authGuard } from './auth.guard';
 import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
+import { PayComponent } from './pages/pay/pay.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: "category/:id", component: CategoryDetailComponent },
       { path: "product/:id", component: ProductDetailPageComponent },
       { path: "cart", component: CartComponent },
+      { path: "pay", component: PayComponent },
       { path: "signin", component: SignInComponent },
       { path: "signup", component: SignUpComponent }
 
