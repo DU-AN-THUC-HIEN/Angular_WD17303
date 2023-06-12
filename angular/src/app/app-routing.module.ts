@@ -27,6 +27,8 @@ import { BlogEditComponent } from './pages/admin/adminBlog/blog-edit/blog-edit.c
 import { authGuard } from './auth.guard';
 import { ListCommentComponent } from './pages/admin/adminComment/list-comment/list-comment.component';
 import { PayComponent } from './pages/pay/pay.component';
+import { ListBillComponent } from './pages/admin/adminBill/list-bill/list-bill.component';
+import { DetailBillComponent } from './pages/admin/adminBill/detail-bill/detail-bill.component';
 
 const routes: Routes = [
   {
@@ -59,7 +61,9 @@ const routes: Routes = [
       { path: "blogs/:id/update", component: BlogEditComponent },
       { path: "user", component: UserListComponent },
       { path: "user/:id/update", component: UserUpdateComponent },
-      { path: "comments", component: ListCommentComponent }
+      { path: "comments", component: ListCommentComponent },
+      { path: "bill", component: ListBillComponent},
+      {path: "bill/:id", component: DetailBillComponent}
 
     ]
 
