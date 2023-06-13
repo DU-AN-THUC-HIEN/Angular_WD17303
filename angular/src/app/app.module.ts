@@ -46,6 +46,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { PayComponent } from './pages/pay/pay.component';
 import { ListBillComponent } from './pages/admin/adminBill/list-bill/list-bill.component';
 import { DetailBillComponent } from './pages/admin/adminBill/detail-bill/detail-bill.component';
+import { BillComponent } from './pages/bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { DetailBillComponent } from './pages/admin/adminBill/detail-bill/detail-
     PayComponent,
     ListBillComponent,
     DetailBillComponent,
+    BillComponent,
 
   ],
   imports: [

@@ -29,6 +29,7 @@ import { ListCommentComponent } from './pages/admin/adminComment/list-comment/li
 import { PayComponent } from './pages/pay/pay.component';
 import { ListBillComponent } from './pages/admin/adminBill/list-bill/list-bill.component';
 import { DetailBillComponent } from './pages/admin/adminBill/detail-bill/detail-bill.component';
+import { BillComponent } from './pages/bill/bill.component';
 
 const routes: Routes = [
   {
@@ -42,8 +43,8 @@ const routes: Routes = [
       { path: "cart", component: CartComponent },
       { path: "pay", component: PayComponent },
       { path: "signin", component: SignInComponent },
-      { path: "signup", component: SignUpComponent }
-
+      { path: "signup", component: SignUpComponent },
+      {path: "bill", component: BillComponent}
     ]
   },
   {

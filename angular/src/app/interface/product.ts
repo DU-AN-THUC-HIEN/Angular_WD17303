@@ -8,7 +8,8 @@ export interface IProduct {
     categoryId?: string,
     category?: string
     quantity?: number | any
-    productId?: string
+    productId?: string,
+    status?: string
 }
 export interface IImage {
     url: string;
