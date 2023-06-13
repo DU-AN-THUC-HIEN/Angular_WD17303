@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const cartSchema = new mongoose.Schema(
   {
     userId: {
@@ -24,8 +23,9 @@ const cartSchema = new mongoose.Schema(
       type: Number,
     },
     status: {
-      type: String,
-      default: "Checking"
+      type: mongoose.Types.ObjectId,
+      ref: "Status",
+      default: "6488a17e098b67f90d85df71"
     },
     address: {
       type: String,

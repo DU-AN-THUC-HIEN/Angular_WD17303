@@ -14,6 +14,9 @@ const productsSchema = mongoose.Schema({
     price: Number,
     image: Object,
     description: String,
+    status:{
+        type: String,
+    },
     categoryId: {
         type: mongoose.Types.ObjectId,
         ref: "Category",
