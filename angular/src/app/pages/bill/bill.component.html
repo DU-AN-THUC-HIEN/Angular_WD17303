@@ -44,16 +44,22 @@
                                                 <h3 class="product-title">
                                                     <a href="" class="mr-3">{{names.name}} </a>
                                                 </h3><!-- End .product-title -->
+                                                
                                             </div>
                                         </div><!-- End .product -->
-                                    </td>
+                                    </td> 
                                     <td class="price-col">{{order.total}}</td>
+                                    <div class="product" *ngFor=" let names of order.products ; let is = index">
+
+                                    <td class="price-col">{{names.quantity}}</td>
+                                    </div>
+                                    
     
-                                        <td class="price-col">{{order.quantity}}</td>
+                                      
     
-                                    <td class="total-col">{{order.status}}</td>
-            <td class="remove-col"><button class="btn-remove" (click)="huyDon()"><i class="icon-close"></i></button></td>
-                                </tr>
+                                    <td class="total-col" style="color: green;">{{order.status.status}}...</td>
+            <td class="remove-col"><button class="btn-remove" (click)="huyDon()">Hủy đơn</button></td>
+                                </tr>   
     
                                 
                             </tbody>
