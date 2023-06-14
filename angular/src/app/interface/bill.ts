@@ -1,13 +1,13 @@
 import { IProduct } from "./product";
 
  export interface IBill {
-    _id? : string,
+    _id? : any,
     name?: string,
     total?: string,
-    status?: string,
+    status?: any,
     address?: string,
     phone?: number,
     notes?: string,
     createdAt?: string,
-    products: any
+    products?: any
  }

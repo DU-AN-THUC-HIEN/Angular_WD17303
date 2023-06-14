@@ -12,7 +12,7 @@ export class ListBillComponent {
   constructor( private billService: BillService){
     this.billService.getAllBill().subscribe((data:any) =>{
       this.bills = data
-      console.log(this.bills);
+   
       
     }, error =>{
       console.log(error.message);
