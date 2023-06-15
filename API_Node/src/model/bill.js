@@ -46,6 +46,10 @@ const cartSchema = new mongoose.Schema(
         type: Number,
   
     },
+    orderCancellation: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "OrderCancellation",
+    },
   },
   { timestamps: true, versionKey: false }
 );

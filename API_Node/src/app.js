@@ -10,6 +10,7 @@ import routerComment from "./routes/comment";
 import routerCart from "./routes/cart";
 import routerBill from "./routes/bill";
 import routerStatus from "./routes/status";
+import routerCancelOrder from "./routes/cancelOrder";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -21,7 +22,8 @@ app.use("/api", routerBlog);
 app.use("/api", routerComment)
 app.use("/api", routerCart)
 app.use("/api", routerBill);
-app.use("/api", routerStatus)
+app.use("/api", routerStatus);
+app.use("/api", routerCancelOrder)
 mongoose.connect("mongodb://127.0.0.1:27017/Angular_WD17303")   ;
 
 export const viteNodeApp = app;
