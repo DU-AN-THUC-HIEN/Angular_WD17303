@@ -11,26 +11,26 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>('http://localhost:8080/api/products');
+    return this.http.get<IProduct[]>('https://node-bookselt.onrender.com/api/products');
   }
   getProductById(id: string | number): Observable<IProduct> {
-    return this.http.get<IProduct>(`http://localhost:8080/api/products/${id}`);
+    return this.http.get<IProduct>(`https://node-bookselt.onrender.com/api/products/${id}`);
   }
   addProduct(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>('http://localhost:8080/api/products', product);
+    return this.http.post<IProduct>('https://node-bookselt.onrender.com/api/products', product);
   }
   updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(`http://localhost:8080/api/products/${product._id}`, product)
+    return this.http.patch<IProduct>(`https://node-bookselt.onrender.com/api/products/${product._id}`, product)
   }
   removeProduct(id: number): Observable<IProduct> {
-    return this.http.delete<IProduct>(`http://localhost:8080/api/products/${id}`)
+    return this.http.delete<IProduct>(`https://node-bookselt.onrender.com/api/products/${id}`)
   }
   searchProducts(searchValue: string): Observable<IProduct[]> {
-    const url = `http://localhost:8080/api/products/?q=${searchValue}`;
+    const url = `https://node-bookselt.onrender.com/api/products/?q=${searchValue}`;
     return this.http.get<IProduct[]>(url);
   }
   getAllProducts(limit: number, page: number): Observable<IProduct[]> {
-    const url = `http://localhost:8080/api/products?_limit=${limit}&_page=${page}`;
+    const url = `https://node-bookselt.onrender.com/api/products?_limit=${limit}&_page=${page}`;
     return this.http.get<IProduct[]>(url);
   }
 }

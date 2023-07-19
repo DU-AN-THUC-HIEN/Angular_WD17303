@@ -18,7 +18,7 @@ export class UploadService {
     } else {
       formData.append('images', files);
     }
-    return this.http.post(`http://localhost:8080/api/images/upload`, formData);
+    return this.http.post(`https://node-bookselt.onrender.com/api/images/upload`, formData);
   }
   updateImage(publicId: string, files: any[]): Observable<any> {
     const formData = new FormData();
@@ -29,6 +29,6 @@ export class UploadService {
     } else {
       formData.append('images', files);
     }
-    return this.http.put(`http://localhost:8080/api/images/${publicId}`, formData);
+    return this.http.put(`https://node-bookselt.onrender.com/api/images/${publicId}`, formData);
   }
 }

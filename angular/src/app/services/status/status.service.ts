@@ -8,8 +8,8 @@ import { IStatus } from 'src/app/interface/status';
 })
 export class StatusService {
 
-  constructor(private http:HttpClient) {}
-  getAllStatus():Observable<IStatus[]>{
-    return this.http.get<IStatus[]>(`http://localhost:8080/api/status`)
+  constructor(private http: HttpClient) { }
+  getAllStatus(): Observable<IStatus[]> {
+    return this.http.get<IStatus[]>(`https://node-bookselt.onrender.com/api/status`)
   }
 }

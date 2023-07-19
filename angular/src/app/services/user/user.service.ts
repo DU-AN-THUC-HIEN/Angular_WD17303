@@ -9,21 +9,21 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   signUp(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>('http://localhost:8080/api/signup', user);
+    return this.http.post<IUser>('https://node-bookselt.onrender.com/api/signup', user);
   }
   signIn(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>('http://localhost:8080/api/signin', user);
+    return this.http.post<IUser>('https://node-bookselt.onrender.com/api/signin', user);
   }
   getUser(): Observable<IUser[]> {
-    return this.http.get<IUser[]>('http://localhost:8080/api/user');
+    return this.http.get<IUser[]>('https://node-bookselt.onrender.com/api/user');
   }
   getUserById(id: string | number): Observable<IUser> {
-    return this.http.get<IUser>(`http://localhost:8080/api/user/${id}`);
+    return this.http.get<IUser>(`https://node-bookselt.onrender.com/api/user/${id}`);
   }
   removeUser(id: number): Observable<IUser> {
-    return this.http.delete<IUser>(`http://localhost:8080/api/user/${id}`)
+    return this.http.delete<IUser>(`https://node-bookselt.onrender.com/api/user/${id}`)
   }
   updateUser(user: IUser): Observable<IUser> {
-    return this.http.patch<IUser>(`http://localhost:8080/api/user/${user._id}`, user)
+    return this.http.patch<IUser>(`https://node-bookselt.onrender.com/api/user/${user._id}`, user)
   }
 }

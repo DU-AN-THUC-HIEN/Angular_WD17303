@@ -11,21 +11,21 @@ export class CommentService {
   constructor(private http: HttpClient) { }
 
   addComment(comment: any): Observable<IComment> {
-    return this.http.post<any>(`http://localhost:8080/api/comment`, comment)
+    return this.http.post<any>(`https://node-bookselt.onrender.com/api/comment`, comment)
   }
   removeComment(id: any): Observable<IComment> {
-    return this.http.delete<IComment>(`http://localhost:8080/api/comment/${id}`)
+    return this.http.delete<IComment>(`https://node-bookselt.onrender.com/api/comment/${id}`)
   }
   getCommentById(id: any): Observable<IComment> {
-    return this.http.get<IComment>(`http://localhost:8080/api/comment/${id}/detail`)
+    return this.http.get<IComment>(`https://node-bookselt.onrender.com/api/comment/${id}/detail`)
   }
   getCommentByProduct(productId: string): Observable<IComment[]> {
-    return this.http.get<IComment[]>(`http://localhost:8080/api/comment/${productId}`)
+    return this.http.get<IComment[]>(`https://node-bookselt.onrender.com/api/comment/${productId}`)
   }
   updateComment(comment: IComment): Observable<IComment> {
-    return this.http.post<IComment>(`http://localhost:8080/api/comment/${comment._id}`, comment)
+    return this.http.post<IComment>(`https://node-bookselt.onrender.com/api/comment/${comment._id}`, comment)
   }
-  getAllComment(): Observable<IComment[]>{
-    return this.http.get<IComment[]>(`http://localhost:8080/api/comment`)
+  getAllComment(): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`https://node-bookselt.onrender.com/api/comment`)
   }
 }

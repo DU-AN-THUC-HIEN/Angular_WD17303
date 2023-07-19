@@ -12,18 +12,18 @@ export class BillService {
     private http: HttpClient
   ) { }
   getAllBill(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/api/bill');
+    return this.http.get<any>('https://node-bookselt.onrender.com/api/bill');
   }
   getBillId(id: string | number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/bill/${id}`);
+    return this.http.get<any>(`https://node-bookselt.onrender.com/api/bill/${id}`);
   }
   addBill(bill: IBill): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/bill', bill);
+    return this.http.post<any>('https://node-bookselt.onrender.com/api/bill', bill);
   }
   updateBill(bill: IBill): Observable<IBill> {
-    return this.http.patch<any>(`http://localhost:8080/api/bill/${bill._id}`, bill)
+    return this.http.patch<any>(`https://node-bookselt.onrender.com/api/bill/${bill._id}`, bill)
   }
   // removeBlog(id: number): Observable<IBlog> {
-  //   return this.http.delete<IBlog>(`http://localhost:8080/api/blogs/${id}`)
+  //   return this.http.delete<IBlog>(`https://node-bookselt.onrender.com/api/blogs/${id}`)
   // }
 }
