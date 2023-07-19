@@ -1,5 +1,5 @@
 import express from 'express'
-import { changeQuantity, create, getOne, removeProduct } from '../controller/cart'
+import { changeQuantity, create, getOne, removeProduct } from '../controller/cart.js'
 
 const routerCart = express.Router()
 routerCart.get('/cart/:id', getOne)

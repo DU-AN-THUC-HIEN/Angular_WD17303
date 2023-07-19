@@ -1,8 +1,8 @@
-import User from "../model/user";
-import { userSchema, signInSchema } from "../schemas/auth";
+import User from "../model/user.js";
+import { userSchema, signInSchema } from "../schemas/auth.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import user from "../model/user";
+import user from "../model/user.js";
 export const signUp = async (req, res) => {
     try {
         const { name, email, password, address, image } = req.body;

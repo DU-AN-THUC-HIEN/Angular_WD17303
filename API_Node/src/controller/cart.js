@@ -1,6 +1,6 @@
-import Cart from '../model/cart'
-import User from "../model/user";
-import { ProductSchema, productCart } from '../schemas/product'
+import Cart from '../model/cart.js'
+import User from "../model/user.js";
+import { ProductSchema, productCart } from '../schemas/product.js'
 
 
 export const resetCart = async (idUser) => {

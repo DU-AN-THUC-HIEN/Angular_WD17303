@@ -1,6 +1,6 @@
-import Product from "../model/product";
-import Category from "../model/category"
-import { ProductSchema } from "../schemas/product";
+import Product from "../model/product.js";
+import Category from "../model/category.js"
+import { ProductSchema } from "../schemas/product.js";
 export const getAll = async (req, res) => {
     const { _limit = 10, _sort = "createAt", _order = "asc", _page = 1, q } = req.query;
     const options = {

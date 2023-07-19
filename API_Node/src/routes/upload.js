@@ -1,21 +1,17 @@
 import express from "express";
 import multer from "multer";
-import { deleteImage, updateImage, uploadImage } from "../controller/upload";
+import { deleteImage, updateImage, uploadImage } from "../controller/upload.js";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-import cloudinary from "../config/cloudinary";
+import cloudinary from "../config/cloudinary.js";
 const router = express.Router();
 
-interface CloudinaryParams {
-    folder: string;
-    format: string;
-    // các thuộc tính khác của `Params` nếu cần
-}
+
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
         folder: "WE17301",
         format: "png",
-    } as CloudinaryParams
+    }
 });
 
 const upload = multer({ storage: storage });

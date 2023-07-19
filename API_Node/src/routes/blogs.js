@@ -1,6 +1,6 @@
 import express from "express";
-import { getAll, get, create, remove, update } from "../controller/blog";
-import { checkPermission } from "../middlewares/checkPermission";
+import { getAll, get, create, remove, update } from "../controller/blog.js";
+import { checkPermission } from "../middlewares/checkPermission.js";
 
 const router = express.Router();
 router.get("/blogs", getAll);

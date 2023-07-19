@@ -1,4 +1,3 @@
-import { string } from "joi";
 import mongoose, { Types } from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
 
@@ -14,7 +13,7 @@ const productsSchema = mongoose.Schema({
     price: Number,
     image: Object,
     description: String,
-    status:{
+    status: {
         type: String,
     },
     categoryId: {

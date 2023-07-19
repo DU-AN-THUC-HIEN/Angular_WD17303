@@ -1,5 +1,5 @@
-import Bill from '../model/bill';
-import { billSchema } from '../schemas/bill';
+import Bill from '../model/bill.js';
+import { billSchema } from '../schemas/bill.js';
 
 export const getAll = async (req, res) => {
     try {

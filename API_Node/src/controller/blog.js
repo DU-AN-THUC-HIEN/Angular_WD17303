@@ -1,5 +1,5 @@
-import Blog from "../model/blog";
-import { BlogSchema } from "../schemas/blog";
+import Blog from "../model/blog.js";
+import { BlogSchema } from "../schemas/blog.js";
 
 
 export const getAll = async (req, res) => {
@@ -22,7 +22,7 @@ export const get = async (req, res) => {
                 message: "Không tìm thấy bài viết",
             })
         }
-        
+
         return res.status(200).json(data);
     } catch (error) {
         return res.status(400).json({
@@ -62,17 +62,17 @@ export const create = async (req, res) => {
 
 export const remove = async (req, res) => {
     try {
-      const data = await Blog.deleteOne({ _id: req.params.id });
-      return res.status(200).json({
-        message: "Xóa danh mụcthành công",
-        data
-      });
+        const data = await Blog.deleteOne({ _id: req.params.id });
+        return res.status(200).json({
+            message: "Xóa danh mụcthành công",
+            data
+        });
     } catch (error) {
-      return res.status(400).json({
-        message: error.message
-      });
+        return res.status(400).json({
+            message: error.message
+        });
     }
-  };
+};
 export const update = async (req, res) => {
     try {
         const id = req.params.id;
